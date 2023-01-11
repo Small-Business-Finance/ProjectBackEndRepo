@@ -1,33 +1,32 @@
 package com.smartCapital.sbfApp.app.model;
 
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Data
-public class Sanction {
-	
+public class PresentLoanDetails {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer sanctionedLoanId;
-	private  Double sanctionedLoanAmount;
-	private Double sanctionedTenure;
-	private Double emi;
-	private Long disbursedAmount;
-	private String companyName;
-	private Long companyRegistrationNo;
-	private Integer defaulterCount;
+	private Integer loanDetailsId;
+	private Double expectedLoanAmount;
+	 private Double expectedLoanTenure;
+private Double	expectedEmiAmount;
+	private String loanStatus;
+	private String loanDisbursedStatus;
+	
+	 
+
 
 }
