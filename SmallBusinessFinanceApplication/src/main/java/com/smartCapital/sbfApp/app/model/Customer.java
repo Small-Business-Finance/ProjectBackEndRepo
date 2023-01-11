@@ -23,5 +23,5 @@ public class Customer {
 	private double companyTurnover;
 	private String applicationStatus;
 	@OneToOne(cascade=CascadeType.ALL)
-	private companyBankDetails companyBankDetails; 
+	private CompanyBankDetails companyBankDetails; 
 }
