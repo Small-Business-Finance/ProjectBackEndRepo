@@ -35,8 +35,4 @@ public class Enquiry {
 	@OneToOne(cascade = CascadeType.MERGE)
 	private CibilScore cibilscore;
 	
-	
-	
-	
-
 }
