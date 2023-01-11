@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -33,10 +32,6 @@ public class Enquiry {
 	private String enuiryStatus;
 	private String registrationStatus;
 	@OneToOne(cascade = CascadeType.MERGE)
-	private CibilScore cibilscore;
-	
-	
-	
-	
+	private CibilScore cibilscore;	
 
 }
