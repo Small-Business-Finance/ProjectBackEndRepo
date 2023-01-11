@@ -26,8 +26,7 @@ private Double	expectedEmiAmount;
 	private String loanStatus;
 	private String loanDisbursedStatus;
 	
-	@OneToOne(cascade=CascadeType.ALL)
-	private companyBankDetails companyBankDetails; 
+	 
 
 
 }

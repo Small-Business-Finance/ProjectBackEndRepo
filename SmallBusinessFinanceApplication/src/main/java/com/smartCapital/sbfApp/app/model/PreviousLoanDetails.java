@@ -26,8 +26,8 @@ public class PreviousLoanDetails {
 	private Double remainingAmount;
 	private Integer defaulterCount;	
 	private String bankName;
-	@OneToOne(cascade=CascadeType.ALL)
-	private companyBankDetails companyBankDetails; 
+	
+	
 
 
 }
