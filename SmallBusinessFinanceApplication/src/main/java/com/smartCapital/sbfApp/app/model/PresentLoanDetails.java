@@ -21,8 +21,8 @@ public class PresentLoanDetails {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer loanDetailsId;
 	private Double expectedLoanAmount;
-	 private Double expectedLoanTenure;
-private Double	expectedEmiAmount;
+	private Double expectedLoanTenure;
+	private Double	expectedEmiAmount;
 	private String loanStatus;
 	private String loanDisbursedStatus;
 	
