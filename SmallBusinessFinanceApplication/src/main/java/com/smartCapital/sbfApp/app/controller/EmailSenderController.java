@@ -23,6 +23,7 @@ public class EmailSenderController {
 	public String sendEmail(@RequestBody EmailSender e)
 	{
 		e.setFromEmail(fromEmail);
+		
 		try {
 			esi.sendEmail(e);
 		} catch (Exception e2) {
@@ -34,6 +35,7 @@ public class EmailSenderController {
 	public String sendEmailWithAttachment(@RequestBody EmailSender e)
 	{
 		e.setFromEmail(fromEmail);
+		
 		try {
 			esi.sendEmailWithAttachment(e);
 		} catch (Exception e1) {
