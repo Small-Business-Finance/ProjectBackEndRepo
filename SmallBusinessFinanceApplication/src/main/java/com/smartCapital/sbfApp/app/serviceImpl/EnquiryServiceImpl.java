@@ -34,9 +34,9 @@ public class EnquiryServiceImpl implements EnquiryService{
 		
 		enqiryupd.setEnquiryId(enquiry.getEnquiryId());
 		enqiryupd.setCompanyName(enquiry.getCompanyName());
-		enqiryupd.setCompanyRegistrationNumber(enquiry.getCompanyRegistrationNumber());
+		//enqiryupd.setRegistrationNumber(enquiry.getRegistrationNumber());
 		enqiryupd.setTypesOfBusiness(enquiry.getTypesOfBusiness());
-		enqiryupd.setCompanyAddress(enquiry.getCompanyAddress());
+		//enqiryupd.setCompanyAddress(enquiry.getCompanyAddress());
 		enqiryupd.setCustomerName(enquiry.getCompanyName());
 		enqiryupd.setCompanyPancardNumber(enquiry.getCompanyPancardNumber());
 		enqiryupd.setCustomerPancardNumber(enquiry.getCustomerPancardNumber());
