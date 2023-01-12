@@ -9,7 +9,7 @@ import com.smartCapital.sbfApp.app.model.CibilScore;
 import com.smartCapital.sbfApp.app.model.Enquiry;
 
 @Repository
-public interface EnquiryRepository extends CrudRepository<Enquiry, Integer> {
+public interface EnquiryRepository extends CrudRepository<Enquiry, Integer>{
 
 	@Transactional
 	public Enquiry findByEnquiryId(Integer id);
