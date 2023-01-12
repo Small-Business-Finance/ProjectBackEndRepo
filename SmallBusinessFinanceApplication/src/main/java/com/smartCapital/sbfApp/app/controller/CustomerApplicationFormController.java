@@ -20,6 +20,7 @@ public class CustomerApplicationFormController {
 	@PostMapping(value = "/application")
 	public String saveApplicationForm(@RequestBody CustomerApplicationForm c)
 	{
+		
 		csi.saveApplicationForm(c);
 		return "data added successfully";
 	}
