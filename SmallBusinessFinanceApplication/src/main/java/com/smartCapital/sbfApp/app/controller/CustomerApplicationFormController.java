@@ -45,7 +45,11 @@ public class CustomerApplicationFormController {
 		cf.setApplicationStatus(cmf.getApplicationStatus());
 		
 		CustomerBankDetails cb=new CustomerBankDetails();
+		cb.setAccountNumber(cmf.getCustomerBankDetails().getAccountNumber());
 		cb.setBankName(cmf.getCustomerBankDetails().getBankName());
+		cb.setIfscCode(cmf.getCustomerBankDetails().getIfscCode());
+		cb.setBranchCode(cmf.getCustomerBankDetails().getBranchCode());
+		cb.setBranchAddress(cmf.getCustomerBankDetails().getBranchAddress());
 		cf.setCustomerBankDetails(cb);
 		
 		CustomerDocuments cd=new CustomerDocuments();
