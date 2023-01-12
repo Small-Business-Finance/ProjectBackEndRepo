@@ -20,7 +20,7 @@ public class CustomerCompanyDetails {
 	private Long companyRegistrationNo;
 	private String companyName;
 	private String typeOfBusiness;
-	private Long companyPanCardNumber;
+	private String companyPanCardNumber;
 	private Double companyTurnover;
 
 }
