@@ -1,4 +1,4 @@
-package com.smartCapital.sbfApp.app.serviceimpl;
+package com.smartCapital.sbfApp.app.serviceImpl;
 
 import javax.mail.internet.MimeMessage;
 
