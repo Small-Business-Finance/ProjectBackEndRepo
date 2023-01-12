@@ -36,6 +36,7 @@ public class CustomerApplicationFormController {
 	public String saveApplicationForm(@RequestPart("document") MultipartFile file1,
 			@RequestPart("applicationForm")String application) throws IOException
 	{
+
 		ObjectMapper om=new ObjectMapper();
 		
 		CustomerApplicationForm cmf=om.readValue(application,CustomerApplicationForm.class);
@@ -52,6 +53,9 @@ public class CustomerApplicationFormController {
 		cf.setCustomerDocuments(cd);
 		
 		csi.saveApplicationForm(cf);
+		
+		
+
 		return "data added successfully";
 	}
 	
