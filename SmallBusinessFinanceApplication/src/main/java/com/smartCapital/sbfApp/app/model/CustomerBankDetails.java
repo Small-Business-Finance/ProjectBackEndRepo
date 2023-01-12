@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class companyBankDetails {
+public class CustomerBankDetails {
 
 	@Id
 	private double accountNo;
