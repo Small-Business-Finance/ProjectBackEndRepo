@@ -33,7 +33,7 @@ public class CustomerApplicationForm {
 	private CustomerCompanyDetails customerCompanyDetails;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	private companyBankDetails companyBankDetails;
+	private CompanyBankDetails companyBankDetails;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private GuarantorDetails guarantorDetails;
