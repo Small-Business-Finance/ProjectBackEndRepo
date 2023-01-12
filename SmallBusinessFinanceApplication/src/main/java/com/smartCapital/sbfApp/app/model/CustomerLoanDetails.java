@@ -15,14 +15,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class PresentLoanDetails {
+public class CustomerLoanDetails {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer loanDetailsId;
+	private Integer loanId;
 	private Double expectedLoanAmount;
 	private Double expectedLoanTenure;
-	private Double	expectedEmiAmount;
+	private Double expectedEmiAmount;
 	private String loanStatus;
 	private String loanDisbursedStatus;
 	

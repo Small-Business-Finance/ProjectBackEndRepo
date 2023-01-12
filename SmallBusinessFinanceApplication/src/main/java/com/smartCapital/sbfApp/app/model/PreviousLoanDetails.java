@@ -1,11 +1,11 @@
 package com.smartCapital.sbfApp.app.model;
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,7 +19,7 @@ public class PreviousLoanDetails {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer previousLoanDetailsId;
+	private Integer previousLoanId;
 	private Double loanAmount;
 	private Double loanTenure;
 	private Double paidAmount;

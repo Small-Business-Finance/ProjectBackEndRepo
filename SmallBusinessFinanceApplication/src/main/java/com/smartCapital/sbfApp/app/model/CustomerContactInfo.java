@@ -1,6 +1,7 @@
 package com.smartCapital.sbfApp.app.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
@@ -11,12 +12,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CompanyContactInfo 
+public class CustomerContactInfo 
 {
 	@Id
-	private Integer mobileNo;
+	@GeneratedValue()
+	private Long mobileNumber;
 	private String emailId;
-	private Integer faxnNo;
+	private Integer faxNumber;
 	private String address;
 
 }
