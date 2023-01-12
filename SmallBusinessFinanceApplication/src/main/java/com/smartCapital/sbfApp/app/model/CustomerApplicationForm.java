@@ -26,13 +26,13 @@ public class CustomerApplicationForm {
 	private CustomerDetails customerDetails; 
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	private CompanyContactInfo customerContactInfo;
+	private CustomerContactInfo customerContactInfo;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private CustomerCompanyDetails customerCompanyDetails;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	private CustomerBankDetails companyBankDetails;
+	private CustomerBankDetails customerBankDetails;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private GuarantorDetails guarantorDetails;
@@ -41,9 +41,9 @@ public class CustomerApplicationForm {
 	private PreviousLoanDetails previousLoanDetails;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	private PresentLoanDetails presentLoanDetails;
+	private CustomerLoanDetails customerLoanDetails;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	private CompanyDocuments companyDocuments;
+	private CustomerDocuments customerDocuments;
 		
 }

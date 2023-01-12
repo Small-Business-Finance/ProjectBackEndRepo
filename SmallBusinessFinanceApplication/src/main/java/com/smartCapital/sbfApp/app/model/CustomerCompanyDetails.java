@@ -17,10 +17,11 @@ public class CustomerCompanyDetails {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long companyRegistrationNo;
+	private Long registrationNumber;
 	private String companyName;
+	private String companyOwnerName;
 	private String typeOfBusiness;
-	private String companyPanCardNumber;
+	private String PanCardNumber;
 	private Double companyTurnover;
 
 }
