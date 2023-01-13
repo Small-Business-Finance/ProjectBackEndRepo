@@ -101,6 +101,8 @@ public class EnquiryController {
 		double a= Math.random()*(max-min+1)+min;
 		
 		return new ResponseEntity<Double>(a,HttpStatus.OK);
+
 	}
-	
 }
+	
+

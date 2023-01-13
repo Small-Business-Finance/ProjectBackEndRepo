@@ -17,12 +17,12 @@ import lombok.NoArgsConstructor;
 public class EMITable{ 
 @Id
 @GeneratedValue(strategy=GenerationType.AUTO)
-			private int emiDetailsId;
+			private Integer emiDetailsId;
 			private String emiStatus;
 			private Double emiAmount;
-			private int emiTenure;
+			private Integer emiTenure;
 			private Double emiPaid;
-			private int defaultorCount;
+			private Integer defaultorCount;
 			
 		}
 		 
