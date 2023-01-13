@@ -44,7 +44,7 @@ public class EnquiryServiceImpl implements EnquiryService{
 		enqiryupd.setAlternateMobileNumber(enquiry.getAlternateMobileNumber());
 		enqiryupd.setEmailId(enquiry.getEmailId());
 		enqiryupd.setItrStatus(enquiry.getItrStatus());
-		enqiryupd.setEnuiryStatus(enquiry.getEnuiryStatus());
+		enqiryupd.setEnquiryStatus(enquiry.getEnquiryStatus());
 		enqiryupd.setRegistrationStatus(enquiry.getRegistrationStatus());
 		enqiryupd.setCibilscore(enquiry.getCibilscore());
 		enquiryrepository.save(enqiryupd);
