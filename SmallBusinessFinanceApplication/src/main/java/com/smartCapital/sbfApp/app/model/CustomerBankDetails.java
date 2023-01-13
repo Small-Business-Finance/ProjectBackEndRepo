@@ -17,6 +17,7 @@ public class CustomerBankDetails {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer bankId;
 	private Long accountNumber;
 	private String bankName;
 	private Long ifscCode;
