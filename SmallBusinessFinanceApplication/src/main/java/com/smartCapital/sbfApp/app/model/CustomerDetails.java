@@ -18,8 +18,6 @@ public class CustomerDetails {
 	@Id
 	private Long aadharId;
 	private String customerName;
-	private String emailId;
-	private Long mobileNumber;
 	private String panCardNumber;
 	private String dateOfBirth;
 	private String gender;
