@@ -21,8 +21,6 @@ import com.smartCapital.sbfApp.app.service.EnquiryService;
 @RestController
 @RequestMapping(value="/api")
 
-
-
 public class EnquiryController {
 
 	@Autowired
