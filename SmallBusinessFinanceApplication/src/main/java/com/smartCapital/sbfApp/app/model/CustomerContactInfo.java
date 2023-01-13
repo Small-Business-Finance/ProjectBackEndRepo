@@ -15,7 +15,6 @@ import lombok.NoArgsConstructor;
 public class CustomerContactInfo 
 {
 	@Id
-	@GeneratedValue()
 	private Long mobileNumber;
 	private String emailId;
 	private Integer faxNumber;

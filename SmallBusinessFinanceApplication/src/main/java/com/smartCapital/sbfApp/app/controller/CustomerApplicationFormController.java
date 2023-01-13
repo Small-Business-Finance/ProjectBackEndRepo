@@ -15,8 +15,14 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.smartCapital.sbfApp.app.model.CustomerDocuments;
+import com.smartCapital.sbfApp.app.model.CustomerLoanDetails;
+import com.smartCapital.sbfApp.app.model.GuarantorDetails;
+import com.smartCapital.sbfApp.app.model.PreviousLoanDetails;
 import com.smartCapital.sbfApp.app.model.CustomerApplicationForm;
 import com.smartCapital.sbfApp.app.model.CustomerBankDetails;
+import com.smartCapital.sbfApp.app.model.CustomerCompanyDetails;
+import com.smartCapital.sbfApp.app.model.CustomerContactInfo;
+import com.smartCapital.sbfApp.app.model.CustomerDetails;
 import com.smartCapital.sbfApp.app.service.CustomerApplicationFormServiceI;
 
 @RestController
@@ -33,7 +39,13 @@ public class CustomerApplicationFormController {
 //	}
 	
 	@PostMapping(value = "/application")
-	public String saveApplicationForm(@RequestPart("document") MultipartFile file1,
+	public String saveApplicationForm(@RequestPart("itrReturns") MultipartFile file1,
+			@RequestPart("pancard") MultipartFile file2,
+			@RequestPart("moa") MultipartFile file3,
+			@RequestPart("aoa") MultipartFile file4,
+			@RequestPart("auditReport") MultipartFile file5,
+			@RequestPart("tan") MultipartFile file6,
+			@RequestPart("msmeCertificate") MultipartFile file7,
 			@RequestPart("applicationForm")String application) throws IOException
 	{
 
@@ -44,6 +56,32 @@ public class CustomerApplicationFormController {
 		CustomerApplicationForm cf=new CustomerApplicationForm();
 		cf.setApplicationStatus(cmf.getApplicationStatus());
 		
+		CustomerDetails cdt=new CustomerDetails();
+		cdt.setAadharId(cmf.getCustomerDetails().getAadharId());
+		cdt.setCustomerName(cmf.getCustomerDetails().getCustomerName());
+		cdt.setEmailId(cmf.getCustomerDetails().getEmailId());
+		cdt.setMobileNumber(cmf.getCustomerDetails().getMobileNumber());
+		cdt.setPanCardNumber(cmf.getCustomerDetails().getPanCardNumber());
+		cdt.setDateOfBirth(cmf.getCustomerDetails().getDateOfBirth());
+		cdt.setGender(cmf.getCustomerDetails().getGender());
+		cf.setCustomerDetails(cdt);
+		
+		CustomerContactInfo cinfo=new CustomerContactInfo();
+		cinfo.setMobileNumber(cmf.getCustomerContactInfo().getMobileNumber());
+		cinfo.setEmailId(cmf.getCustomerContactInfo().getEmailId());
+		cinfo.setFaxNumber(cmf.getCustomerContactInfo().getFaxNumber());
+		cinfo.setAddress(cmf.getCustomerContactInfo().getAddress());	
+		cf.setCustomerContactInfo(cinfo);
+		
+		CustomerCompanyDetails ccd=new CustomerCompanyDetails();
+		ccd.setRegistrationNumber(cmf.getCustomerCompanyDetails().getRegistrationNumber());
+		ccd.setCompanyName(cmf.getCustomerCompanyDetails().getCompanyName());
+		ccd.setCompanyOwnerName(cmf.getCustomerCompanyDetails().getCompanyOwnerName());
+		ccd.setTypeOfBusiness(cmf.getCustomerCompanyDetails().getTypeOfBusiness());
+		ccd.setPanCardNumber(cmf.getCustomerCompanyDetails().getPanCardNumber());
+		ccd.setCompanyTurnover(cmf.getCustomerCompanyDetails().getCompanyTurnover());
+		cf.setCustomerCompanyDetails(ccd);
+		
 		CustomerBankDetails cb=new CustomerBankDetails();
 		cb.setAccountNumber(cmf.getCustomerBankDetails().getAccountNumber());
 		cb.setBankName(cmf.getCustomerBankDetails().getBankName());
@@ -52,8 +90,40 @@ public class CustomerApplicationFormController {
 		cb.setBranchAddress(cmf.getCustomerBankDetails().getBranchAddress());
 		cf.setCustomerBankDetails(cb);
 		
+		GuarantorDetails gd=new GuarantorDetails();
+		gd.setGuarantorName(cmf.getGuarantorDetails().getGuarantorName());
+		gd.setGuarantorPanCardNumber(cmf.getGuarantorDetails().getGuarantorPanCardNumber());
+		gd.setRelation(cmf.getGuarantorDetails().getRelation());
+		gd.setMobileNumber(cmf.getGuarantorDetails().getMobileNumber());
+		gd.setOccupation(cmf.getGuarantorDetails().getOccupation());
+		cf.setGuarantorDetails(gd);
+		
+		PreviousLoanDetails pld=new PreviousLoanDetails();
+		pld.setPreviousLoanId(cmf.getPreviousLoanDetails().getPreviousLoanId());
+		pld.setLoanAmount(cmf.getPreviousLoanDetails().getLoanAmount());
+		pld.setLoanTenure(cmf.getPreviousLoanDetails().getLoanTenure());
+		pld.setPaidAmount(cmf.getPreviousLoanDetails().getPaidAmount());
+		pld.setRemainingAmount(cmf.getPreviousLoanDetails().getRemainingAmount());
+		pld.setDefaulterCount(cmf.getPreviousLoanDetails().getDefaulterCount());
+		pld.setBankName(cmf.getPreviousLoanDetails().getBankName());
+		cf.setPreviousLoanDetails(pld);
+			
+		CustomerLoanDetails cld=new CustomerLoanDetails();	
+		cld.setExpectedLoanAmount(cmf.getCustomerLoanDetails().getExpectedLoanAmount());
+		cld.setExpectedLoanTenure(cmf.getCustomerLoanDetails().getExpectedLoanTenure());
+		cld.setExpectedEmiAmount(cmf.getCustomerLoanDetails().getExpectedEmiAmount());
+		cld.setLoanStatus(cmf.getCustomerLoanDetails().getLoanStatus());
+		cld.setLoanDisbursedStatus(cmf.getCustomerLoanDetails().getLoanDisbursedStatus());
+		cf.setCustomerLoanDetails(cld);
+		
 		CustomerDocuments cd=new CustomerDocuments();
-		cd.setAoa(file1.getBytes());
+		cd.setItrReturns(file1.getBytes());
+		cd.setPancard(file2.getBytes());
+		cd.setMoa(file3.getBytes());
+		cd.setAoa(file4.getBytes());
+		cd.setAuditReport(file5.getBytes());
+		cd.setTan(file6.getBytes());
+		cd.setMsmeCertificate(file7.getBytes());
 		cf.setCustomerDocuments(cd);
 		
 		csi.saveApplicationForm(cf);

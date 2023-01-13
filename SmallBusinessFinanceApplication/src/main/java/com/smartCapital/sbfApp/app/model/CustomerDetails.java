@@ -16,7 +16,6 @@ import lombok.NoArgsConstructor;
 public class CustomerDetails {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long aadharId;
 	private String customerName;
 	private String emailId;
