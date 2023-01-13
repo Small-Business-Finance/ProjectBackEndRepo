@@ -29,7 +29,7 @@ public class Enquiry {
 	private Long alternateMobileNumber;
 	private String emailId;
 	private String itrStatus;
-	private String enuiryStatus;
+	private String enquiryStatus;
 	private String registrationStatus;
 	
 	@OneToOne(cascade = CascadeType.ALL)

@@ -22,5 +22,7 @@ public class CustomerCompanyDetails {
 	private String typeOfBusiness;
 	private String PanCardNumber;
 	private Double companyTurnover;
+	private Long telephoneNo;
+	private Integer faxNumber;
 
 }
