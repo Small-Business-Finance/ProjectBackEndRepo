@@ -2,15 +2,14 @@ package com.smartCapital.sbfApp.app.controller;
 
 import java.io.IOException;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -21,11 +20,11 @@ import com.smartCapital.sbfApp.app.model.PreviousLoanDetails;
 import com.smartCapital.sbfApp.app.model.CustomerApplicationForm;
 import com.smartCapital.sbfApp.app.model.CustomerBankDetails;
 import com.smartCapital.sbfApp.app.model.CustomerCompanyDetails;
-import com.smartCapital.sbfApp.app.model.CustomerContactInfo;
 import com.smartCapital.sbfApp.app.model.CustomerDetails;
 import com.smartCapital.sbfApp.app.service.CustomerApplicationFormServiceI;
 
 @RestController
+@RequestMapping(value="/customerapi")
 public class CustomerApplicationFormController {
 
 	@Autowired
@@ -64,15 +63,9 @@ public class CustomerApplicationFormController {
 		cdt.setPanCardNumber(cmf.getCustomerDetails().getPanCardNumber());
 		cdt.setDateOfBirth(cmf.getCustomerDetails().getDateOfBirth());
 		cdt.setGender(cmf.getCustomerDetails().getGender());
+		cdt.setAddress(cmf.getCustomerDetails().getAddress());
 		cf.setCustomerDetails(cdt);
-		
-		CustomerContactInfo cinfo=new CustomerContactInfo();
-		cinfo.setMobileNumber(cmf.getCustomerContactInfo().getMobileNumber());
-		cinfo.setEmailId(cmf.getCustomerContactInfo().getEmailId());
-		cinfo.setFaxNumber(cmf.getCustomerContactInfo().getFaxNumber());
-		cinfo.setAddress(cmf.getCustomerContactInfo().getAddress());	
-		cf.setCustomerContactInfo(cinfo);
-		
+	
 		CustomerCompanyDetails ccd=new CustomerCompanyDetails();
 		ccd.setRegistrationNumber(cmf.getCustomerCompanyDetails().getRegistrationNumber());
 		ccd.setCompanyName(cmf.getCustomerCompanyDetails().getCompanyName());
@@ -80,6 +73,8 @@ public class CustomerApplicationFormController {
 		ccd.setTypeOfBusiness(cmf.getCustomerCompanyDetails().getTypeOfBusiness());
 		ccd.setPanCardNumber(cmf.getCustomerCompanyDetails().getPanCardNumber());
 		ccd.setCompanyTurnover(cmf.getCustomerCompanyDetails().getCompanyTurnover());
+		ccd.setTelephoneNo(cmf.getCustomerCompanyDetails().getTelephoneNo());
+		ccd.setFaxNumber(cmf.getCustomerCompanyDetails().getFaxNumber());
 		cf.setCustomerCompanyDetails(ccd);
 		
 		CustomerBankDetails cb=new CustomerBankDetails();
