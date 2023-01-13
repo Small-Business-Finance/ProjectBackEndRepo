@@ -7,8 +7,8 @@ public interface EnquiryService {
 
 	void saveEnquiry(Enquiry enquiry);
 
-	void updateEnquiry(Integer id, Enquiry enquiry);
 
+	void updateEnquiry(Integer id, Enquiry enquiry);
 	void saveCibilScore(CibilScore cibilscore);
 
 	void updateCibilScore(Integer id, CibilScore cibilscore);
@@ -23,5 +23,7 @@ public interface EnquiryService {
 
 	CibilScore getCibilbyID(int id);
 	
+
+
 
 }

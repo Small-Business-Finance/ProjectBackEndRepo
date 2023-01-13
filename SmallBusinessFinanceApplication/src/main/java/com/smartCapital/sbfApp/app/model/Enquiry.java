@@ -15,23 +15,24 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Enquiry {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer enquiryId;
-	private String companyName;
-	private String companyRegistrationNumber;
-	private String typesOfBusiness;
-	private String companyAddress;
 	private String customerName;
-	private String companyPancardNumber;
+	private String companyName;
+	private String typesOfBusiness;
+	private String customerAddress;
 	private String customerPancardNumber;
+	private String companyPancardNumber;
 	private Long mobileNumber;
 	private Long alternateMobileNumber;
 	private String emailId;
 	private String itrStatus;
 	private String enuiryStatus;
 	private String registrationStatus;
-	@OneToOne(cascade = CascadeType.MERGE)
+	
+	@OneToOne(cascade = CascadeType.ALL)
 	private CibilScore cibilscore;	
 
 }

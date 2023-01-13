@@ -17,10 +17,8 @@ public class CustomerDetails {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer aadharId;
+	private Long aadharId;
 	private String customerName;
-	private String emailId;
-	private Long mobileNo;
 	private String panCardNumber;
 	private String dateOfBirth;
 	private String gender;

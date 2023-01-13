@@ -14,11 +14,11 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CompanyDocuments
+public class CustomerDocuments
 {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Integer documentIdInteger;
+	private Integer documentId;
 	@Lob
 	private byte[] itrReturns;
 	@Lob

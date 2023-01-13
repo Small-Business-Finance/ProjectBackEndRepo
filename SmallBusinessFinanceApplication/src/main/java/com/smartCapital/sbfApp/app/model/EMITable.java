@@ -13,13 +13,17 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CustomerBankDetails {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long accountNumber;
-	private String bankName;
-	private Long ifscCode;
-	private Integer branchCode;
-	private String branchAddress;
-}
+public class EMITable{ 
+@Id
+@GeneratedValue(strategy=GenerationType.AUTO)
+			private int emiDetailsId;
+			private String emiStatus;
+			private Double emiAmount;
+			private int emiTenure;
+			private Double emiPaid;
+			private int defaultorCount;
+			
+		}
+		 
+

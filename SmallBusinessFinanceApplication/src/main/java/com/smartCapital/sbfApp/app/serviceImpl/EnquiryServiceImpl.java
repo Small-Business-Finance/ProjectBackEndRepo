@@ -34,9 +34,9 @@ public class EnquiryServiceImpl implements EnquiryService{
 		
 		enqiryupd.setEnquiryId(enquiry.getEnquiryId());
 		enqiryupd.setCompanyName(enquiry.getCompanyName());
-		enqiryupd.setCompanyRegistrationNumber(enquiry.getCompanyRegistrationNumber());
+		//enqiryupd.setCompanyRegistrationNumber(enquiry.getCompanyRegistrationNumber());
 		enqiryupd.setTypesOfBusiness(enquiry.getTypesOfBusiness());
-		enqiryupd.setCompanyAddress(enquiry.getCompanyAddress());
+		//enqiryupd.setCompanyAddress(enquiry.getCompanyAddress());
 		enqiryupd.setCustomerName(enquiry.getCompanyName());
 		enqiryupd.setCompanyPancardNumber(enquiry.getCompanyPancardNumber());
 		enqiryupd.setCustomerPancardNumber(enquiry.getCustomerPancardNumber());
@@ -84,6 +84,8 @@ public class EnquiryServiceImpl implements EnquiryService{
 		
 		return cibilscorerepository.findByCibilId(id);
 	}
+	
+	
 	
 
 }

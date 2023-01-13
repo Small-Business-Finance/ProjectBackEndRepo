@@ -1,6 +1,8 @@
 package com.smartCapital.sbfApp.app.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,10 +15,11 @@ import lombok.NoArgsConstructor;
 public class GuarantorDetails {
 
 	@Id
-	private Integer guarantorDetailsId;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer guarantorId;
 	private String guarantorName;
-	private String guarantorPANCard;
+	private String guarantorPanCardNumber;
 	private String relation;
-	private long guarantorMobileNo;
-	private String Occupation;
+	private Long mobileNumber;
+	private String occupation;
 }
