@@ -34,7 +34,7 @@ public class EnquiryServiceImpl implements EnquiryService{
 		
 		enqiryupd.setEnquiryId(enquiry.getEnquiryId());
 		enqiryupd.setCompanyName(enquiry.getCompanyName());
-		//enqiryupd.setRegistrationNumber(enquiry.getRegistrationNumber());
+		//enqiryupd.setCompanyRegistrationNumber(enquiry.getCompanyRegistrationNumber());
 		enqiryupd.setTypesOfBusiness(enquiry.getTypesOfBusiness());
 		//enqiryupd.setCompanyAddress(enquiry.getCompanyAddress());
 		enqiryupd.setCustomerName(enquiry.getCompanyName());
@@ -44,7 +44,7 @@ public class EnquiryServiceImpl implements EnquiryService{
 		enqiryupd.setAlternateMobileNumber(enquiry.getAlternateMobileNumber());
 		enqiryupd.setEmailId(enquiry.getEmailId());
 		enqiryupd.setItrStatus(enquiry.getItrStatus());
-		enqiryupd.setEnuiryStatus(enquiry.getEnuiryStatus());
+		enqiryupd.setEnquiryStatus(enquiry.getEnquiryStatus());
 		enqiryupd.setRegistrationStatus(enquiry.getRegistrationStatus());
 		enqiryupd.setCibilscore(enquiry.getCibilscore());
 		enquiryrepository.save(enqiryupd);

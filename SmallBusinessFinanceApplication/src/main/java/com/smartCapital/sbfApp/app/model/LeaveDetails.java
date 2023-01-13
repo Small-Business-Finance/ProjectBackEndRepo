@@ -2,8 +2,8 @@ package com.smartCapital.sbfApp.app.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,13 +12,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CustomerContactInfo 
-{
-	@Id
-	@GeneratedValue()
-	private Long mobileNumber;
-	private String emailId;
-	private Integer faxNumber;
-	private String address;
+public class LeaveDetails {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer leaveAppId;
+	private String fromDate;
+	private String toDate;
+	private String leaveType;
+	private String leaveappstatus;
 }

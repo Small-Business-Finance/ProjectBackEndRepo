@@ -23,10 +23,7 @@ public class CustomerApplicationForm {
 	private String applicationStatus;
 	
 	@OneToOne(cascade=CascadeType.ALL)
-	private CustomerDetails customerDetails; 
-	
-	@OneToOne(cascade = CascadeType.ALL)
-	private CustomerContactInfo customerContactInfo;
+	private CustomerDetails customerDetails;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private CustomerCompanyDetails customerCompanyDetails;
