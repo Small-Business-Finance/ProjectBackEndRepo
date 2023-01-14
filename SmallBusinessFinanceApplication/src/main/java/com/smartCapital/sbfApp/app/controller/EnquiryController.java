@@ -94,10 +94,25 @@ public class EnquiryController {
 		return new ResponseEntity<Iterable<CibilScore>>(list,HttpStatus.OK);
 	}
 	
+
 	@GetMapping("/cibilscore/{cibilId}")
 	public CibilScore getCibilbyID(@PathVariable("cibilId") int id)
 	{
 		CibilScore cibilscore=smartcapitalenquiryservice.getCibilbyID(id);
 		return cibilscore;
+		
+	}
+	@GetMapping("/cibil/getscore")
+	public ResponseEntity<Double>getCIBILScore()
+	{
+		int min=600;
+		int max=900;
+		double a= Math.random()*(max-min+1)+min;
+		
+		return new ResponseEntity<Double>(a,HttpStatus.OK);
+
+
 	}
 }
+	
+

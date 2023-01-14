@@ -1,4 +1,4 @@
-package com.smartCapital.sbfApp.app.model;
+package com.smartCapital.sbfApp.app.dto;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,14 +13,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CustomerBankDetails {
-
+public class CibilScoreDto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer bankId;
-	private Long accountNumber;
-	private String bankName;
-	private Long ifscCode;
-	private Integer branchCode;
-	private String branchAddress;
+	private Integer cibilId;
+	private Integer cibilScore;
+	private String cibilRemark;
+
 }

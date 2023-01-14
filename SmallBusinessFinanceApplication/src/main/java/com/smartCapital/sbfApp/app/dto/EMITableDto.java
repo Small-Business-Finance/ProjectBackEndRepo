@@ -1,4 +1,4 @@
-package com.smartCapital.sbfApp.app.model;
+package com.smartCapital.sbfApp.app.dto;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class EMITable{ 
+public class EMITableDto{ 
 @Id
 @GeneratedValue(strategy=GenerationType.AUTO)
 			private Integer emiDetailsId;

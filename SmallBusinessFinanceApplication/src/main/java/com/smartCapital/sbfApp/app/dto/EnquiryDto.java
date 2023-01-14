@@ -1,4 +1,4 @@
-package com.smartCapital.sbfApp.app.model;
+package com.smartCapital.sbfApp.app.dto;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Enquiry {
+public class EnquiryDto {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,6 +33,6 @@ public class Enquiry {
 	private String registrationStatus;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	private CibilScore cibilscore;	
+	private CibilScoreDto cibilscore;	
 
 }

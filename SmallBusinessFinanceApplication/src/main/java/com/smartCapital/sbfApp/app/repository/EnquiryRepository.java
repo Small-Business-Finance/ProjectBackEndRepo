@@ -7,11 +7,16 @@ import org.springframework.stereotype.Repository;
 
 
 import com.smartCapital.sbfApp.app.model.CibilScore;
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/heads/TeamLiza
 import com.smartCapital.sbfApp.app.model.Enquiry;
 
 @Repository
-public interface EnquiryRepository extends CrudRepository<Enquiry, Integer> {
+public interface EnquiryRepository extends CrudRepository<Enquiry, Integer>{
+
+
 
 	@Transactional
 	public Enquiry findByEnquiryId(Integer id);

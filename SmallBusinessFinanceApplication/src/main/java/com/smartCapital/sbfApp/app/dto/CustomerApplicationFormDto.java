@@ -1,4 +1,4 @@
-package com.smartCapital.sbfApp.app.model;
+package com.smartCapital.sbfApp.app.dto;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CustomerApplicationForm {
+public class CustomerApplicationFormDto {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,24 +23,24 @@ public class CustomerApplicationForm {
 	private String applicationStatus;
 	
 	@OneToOne(cascade=CascadeType.ALL)
-	private CustomerDetails customerDetails;
+	private CustomerDetailsDto customerDetails;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	private CustomerCompanyDetails customerCompanyDetails;
+	private CustomerCompanyDetailsDto customerCompanyDetails;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	private CustomerBankDetails customerBankDetails;
+	private CustomerBankDetailsDto customerBankDetails;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	private GuarantorDetails guarantorDetails;
+	private GuarantorDetailsDto guarantorDetails;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	private PreviousLoanDetails previousLoanDetails;
+	private PreviousLoanDetailsDto previousLoanDetails;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	private CustomerLoanDetails customerLoanDetails;
+	private CustomerLoanDetailsDto customerLoanDetails;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	private CustomerDocuments customerDocuments;
+	private CustomerDocumentsDto customerDocuments;
 		
 }

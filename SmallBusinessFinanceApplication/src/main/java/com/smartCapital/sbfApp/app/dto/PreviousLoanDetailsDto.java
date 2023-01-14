@@ -1,4 +1,4 @@
-package com.smartCapital.sbfApp.app.model;
+package com.smartCapital.sbfApp.app.dto;
 
 
 import javax.persistence.Entity;
@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class PreviousLoanDetails {
+public class PreviousLoanDetailsDto {
 	
 	@Id
 	private Integer previousLoanId;
