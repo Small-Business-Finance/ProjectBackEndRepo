@@ -27,17 +27,17 @@ public class EmployeeController {
 	public ResponseEntity<String> saveEmployee(@RequestBody Employee employee)
 	{
 		esi.saveEmployee(employee);
-		String s= "Employee Saved in Database!!";
+		String s= "Employee details Saved in Database!!";
 		return new ResponseEntity<>(s,HttpStatus.CREATED);
 		
 	}
-	@PutMapping(value = "/employee/{empId}")
-	public ResponseEntity<String> updateEmployee(@RequestBody Employee employee,@PathVariable("empId") Integer empId)
-	{
-		esi.updateEmployee(empId,employee);
-		String s="Employee details updated successfully";
-		return new ResponseEntity<>(s,HttpStatus.OK);
-	}
+//	@PutMapping(value = "/employee/{empId}")
+//	public ResponseEntity<String> updateEmployee(@RequestBody Employee employee,@PathVariable("empId") Integer empId)
+//	{
+//		esi.updateEmployee(empId,employee);
+//		String s="Employee details updated successfully";
+//		return new ResponseEntity<>(s,HttpStatus.OK);
+//	}
 	@DeleteMapping(value = "/employee/{empId}")
 	public ResponseEntity<String> deleteEmployee(@PathVariable("empId") Integer empId)
 	{
@@ -53,10 +53,10 @@ public class EmployeeController {
 		return new ResponseEntity<Iterable<Employee>>(list,HttpStatus.OK);
 	}
 	
-	@GetMapping(value = "/getbyId")
-	public Employee getEmployeebyId(@PathVariable("empId") Integer empId)
-	{
-		Employee employee=esi.getEmployeebyId(empId);
-		return employee;
-	}
+//	@GetMapping(value = "/getbyId")
+//	public Employee getEmployeebyId(@PathVariable("empId") Integer empId)
+//	{
+//		Employee employee=esi.getEmployeebyId(empId);
+//		return employee;
+//	}
 }
