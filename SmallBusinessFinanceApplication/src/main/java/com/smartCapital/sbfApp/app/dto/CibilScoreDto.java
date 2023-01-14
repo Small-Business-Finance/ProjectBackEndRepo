@@ -20,5 +20,4 @@ public class CibilScoreDto
 	private String cibilRemark;
 	
 	
-
 }
