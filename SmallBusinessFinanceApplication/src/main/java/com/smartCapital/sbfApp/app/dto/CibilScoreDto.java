@@ -18,6 +18,7 @@ public class CibilScoreDto
 	private Integer cibilId;
 	private Integer cibilScore;
 	private String cibilRemark;
-
+	
+	
 
 }
