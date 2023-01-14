@@ -25,8 +25,10 @@ public class Employee {
 	private Double empSalary;
 	private String empRole;
 	private String empAddress;
-	private long empMobileno;
+	private Long empMobileno;
 	private String empEmailId;
+	private String username;
+	private String password;
 	
 	
 			

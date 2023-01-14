@@ -19,7 +19,7 @@ import com.smartCapital.sbfApp.app.service.EnquiryService;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping(value="/api")
+@RequestMapping(value="/enquiryapi")
 
 
 

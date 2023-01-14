@@ -27,7 +27,7 @@ public class EmployeeController {
 	public ResponseEntity<String> saveEmployee(@RequestBody Employee employee)
 	{
 		esi.saveEmployee(employee);
-		String s= "Employee Saved in Database!!";
+		String s= "Employee details Saved in Database!!";
 		return new ResponseEntity<>(s,HttpStatus.CREATED);
 		
 	}
@@ -53,10 +53,10 @@ public class EmployeeController {
 		return new ResponseEntity<Iterable<Employee>>(list,HttpStatus.OK);
 	}
 	
-	@GetMapping(value = "/getbyId")
-	public Employee getEmployeebyId(@PathVariable("empId") Integer empId)
-	{
-		Employee employee=esi.getEmployeebyId(empId);
-		return employee;
-	}
+//	@GetMapping(value = "/getbyId")
+//	public Employee getEmployeebyId(@PathVariable("empId") Integer empId)
+//	{
+//		Employee employee=esi.getEmployeebyId(empId);
+//		return employee;
+//	}
 }
