@@ -22,7 +22,7 @@ import com.smartCapital.sbfApp.app.service.EnquiryServiceMapper;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping(value="/api")
+@RequestMapping(value="/enquiryapi")
 public class EnquiryController {
     @Autowired
 	EnquiryService smartcapitalenquiryservice;

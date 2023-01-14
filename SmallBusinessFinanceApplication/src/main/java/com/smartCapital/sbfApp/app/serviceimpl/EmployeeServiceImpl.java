@@ -21,15 +21,17 @@ public class EmployeeServiceImpl implements EmployeeServiceI{
 	public void updateEmployee(Integer empId, Employee employee) {
 		Employee empupdate=employeerepository.findByEmpId(empId);
 		
-		empupdate.setEmpId(employee.getEmpId());
 		empupdate.setEmpName(employee.getEmpName());
 		empupdate.setEmpDateofBirth(employee.getEmpDateofBirth());
-		empupdate.setEmpId(employee.getEmpId());
-		empupdate.setEmpId(employee.getEmpId());
-		empupdate.setEmpId(employee.getEmpId());
-		empupdate.setEmpId(employee.getEmpId());
-		empupdate.setEmpId(employee.getEmpId());
-		empupdate.setEmpId(employee.getEmpId());
+		empupdate.setEmpGender(employee.getEmpGender());
+		empupdate.setEmpSalary(employee.getEmpSalary());
+		empupdate.setEmpRole(employee.getEmpRole());
+		empupdate.setEmpAddress(employee.getEmpAddress());
+		empupdate.setEmpMobileno(employee.getEmpMobileno());
+		empupdate.setEmpEmailId(employee.getEmpEmailId());
+		empupdate.setUsername(employee.getUsername());
+		empupdate.setPassword(employee.getPassword());
+		
 	}
 
 	@Override
