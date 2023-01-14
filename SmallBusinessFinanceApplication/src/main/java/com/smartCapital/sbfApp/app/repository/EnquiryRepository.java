@@ -7,10 +7,7 @@ import org.springframework.stereotype.Repository;
 
 
 import com.smartCapital.sbfApp.app.model.CibilScore;
-<<<<<<< HEAD
 
-=======
->>>>>>> refs/heads/TeamLiza
 import com.smartCapital.sbfApp.app.model.Enquiry;
 
 @Repository
