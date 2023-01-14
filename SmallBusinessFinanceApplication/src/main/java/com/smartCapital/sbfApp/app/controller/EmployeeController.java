@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.smartCapital.sbfApp.app.model.Employee;
 import com.smartCapital.sbfApp.app.service.EmployeeServiceI;
+import com.smartCapital.sbfApp.app.service.EmployeeServiceIMapper;
 
 @CrossOrigin("*")
 @RequestMapping(value="/employeeapi")
@@ -22,6 +23,8 @@ public class EmployeeController {
 
 	@Autowired
 	EmployeeServiceI esi;
+	
+	public EmployeeServiceIMapper employeeserviceimapper;
 	
 	@PostMapping(value = "/saveemployee")
 	public ResponseEntity<String> saveEmployee(@RequestBody Employee employee)
