@@ -31,13 +31,13 @@ public class EmployeeController {
 		return new ResponseEntity<>(s,HttpStatus.CREATED);
 		
 	}
-	@PutMapping(value = "/employee/{empId}")
-	public ResponseEntity<String> updateEmployee(@RequestBody Employee employee,@PathVariable("empId") Integer empId)
-	{
-		esi.updateEmployee(empId,employee);
-		String s="Employee details updated successfully";
-		return new ResponseEntity<>(s,HttpStatus.OK);
-	}
+//	@PutMapping(value = "/employee/{empId}")
+//	public ResponseEntity<String> updateEmployee(@RequestBody Employee employee,@PathVariable("empId") Integer empId)
+//	{
+//		esi.updateEmployee(empId,employee);
+//		String s="Employee details updated successfully";
+//		return new ResponseEntity<>(s,HttpStatus.OK);
+//	}
 	@DeleteMapping(value = "/employee/{empId}")
 	public ResponseEntity<String> deleteEmployee(@PathVariable("empId") Integer empId)
 	{
