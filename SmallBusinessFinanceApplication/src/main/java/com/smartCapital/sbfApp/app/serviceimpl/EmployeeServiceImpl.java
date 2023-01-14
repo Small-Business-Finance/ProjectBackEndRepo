@@ -31,7 +31,7 @@ public class EmployeeServiceImpl implements EmployeeServiceI{
 		empupdate.setEmpEmailId(employee.getEmpEmailId());
 		empupdate.setUsername(employee.getUsername());
 		empupdate.setPassword(employee.getPassword());
-		
+		employeerepository.save(empupdate);
 	}
 
 	@Override
