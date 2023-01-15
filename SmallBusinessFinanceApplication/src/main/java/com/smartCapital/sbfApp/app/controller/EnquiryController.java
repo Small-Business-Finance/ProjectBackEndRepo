@@ -23,10 +23,7 @@ import com.smartCapital.sbfApp.app.service.EnquiryServiceMapper;
 @CrossOrigin("*")
 @RestController
 @RequestMapping(value="/api")
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'master' of https://github.com/Small-Business-Finance/ProjectBackEndRepo.git
 public class EnquiryController {
     @Autowired
 	EnquiryService smartcapitalenquiryservice;
