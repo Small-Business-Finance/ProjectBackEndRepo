@@ -27,5 +27,25 @@ public class CustomerApplicationFormServiceImpl implements CustomerApplicationFo
 		return cr.findAll();
 	}
 
+	@Override
+	public void updateCustomer(CustomerApplicationForm cf, Integer applicationId) {
+		
+		CustomerApplicationForm caf=cr.findByApplicationId(applicationId);
+		caf.setApplicationStatus(cf.getApplicationStatus());
+		cr.save(caf);
+	}
+
+	@Override
+	public void deleteCustomer(Integer applicationId) {
+		cr.deleteById(applicationId);
+		
+	}
+
+	@Override
+	public CustomerApplicationForm getApplicationById(Integer applicationId) {
+		
+		return cr.findByApplicationId(applicationId);
+	}
+
 	
 }

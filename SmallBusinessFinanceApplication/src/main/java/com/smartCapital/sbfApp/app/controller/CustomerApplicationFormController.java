@@ -3,8 +3,14 @@ package com.smartCapital.sbfApp.app.controller;
 import java.io.IOException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
@@ -23,6 +29,7 @@ import com.smartCapital.sbfApp.app.model.CustomerCompanyDetails;
 import com.smartCapital.sbfApp.app.model.CustomerDetails;
 import com.smartCapital.sbfApp.app.service.CustomerApplicationFormServiceI;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping(value="/customerapi")
 public class CustomerApplicationFormController {
@@ -38,7 +45,7 @@ public class CustomerApplicationFormController {
 //	}
 	
 	@PostMapping(value = "/application")
-	public String saveApplicationForm(@RequestPart("itrReturns") MultipartFile file1,
+	public ResponseEntity<String> saveApplicationForm(@RequestPart("itrReturns") MultipartFile file1,
 			@RequestPart("pancard") MultipartFile file2,
 			@RequestPart("moa") MultipartFile file3,
 			@RequestPart("aoa") MultipartFile file4,
@@ -123,15 +130,44 @@ public class CustomerApplicationFormController {
 		
 		csi.saveApplicationForm(cf);
 		
-		
+		String s="Resource created successfully";
 
-		return "data added successfully";
+		return new ResponseEntity<String>(s,HttpStatus.CREATED);
 	}
 	
+	
 	@GetMapping(value = "/applications")
-	public List<CustomerApplicationForm> getApplications()
+	public ResponseEntity<Iterable<CustomerApplicationForm>> getApplications()
 	{
-		List<CustomerApplicationForm> list=csi.getApplications();
-		return list;
+		Iterable<CustomerApplicationForm> list=csi.getApplications();
+		return new ResponseEntity<Iterable<CustomerApplicationForm>>(list,HttpStatus.OK);
+	}
+	
+
+	
+	@GetMapping(value = "/applications/{applicationId}")
+	public ResponseEntity<CustomerApplicationForm> getApplicationById(@PathVariable Integer applicationId)
+	{
+		CustomerApplicationForm list=csi.getApplicationById(applicationId);
+		return new ResponseEntity<CustomerApplicationForm>(list,HttpStatus.OK);
+	}
+	
+	
+	
+	@PutMapping(value = "/application/{applicationId}")
+	public ResponseEntity<String> updateCustomer(@RequestBody CustomerApplicationForm cf,@PathVariable Integer applicationId)
+	{
+		csi.updateCustomer(cf,applicationId);
+		String s="updated";
+		return new ResponseEntity<String>(s,HttpStatus.OK);
+	}
+	
+	
+	@DeleteMapping(value = "/application/{applicationId}")
+	public ResponseEntity<String> deleteCustomer(@PathVariable Integer applicationId)
+	{
+		csi.deleteCustomer(applicationId);
+		String s="record deleted";
+		return new ResponseEntity<String>(s,HttpStatus.NO_CONTENT);
 	}
 }

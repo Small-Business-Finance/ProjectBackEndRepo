@@ -10,4 +10,10 @@ public interface CustomerApplicationFormServiceI {
 
 	List<CustomerApplicationForm> getApplications();
 
+	void updateCustomer(CustomerApplicationForm cf, Integer applicationId);
+
+	void deleteCustomer(Integer applicationId);
+
+	CustomerApplicationForm getApplicationById(Integer applicationId);
+
 }

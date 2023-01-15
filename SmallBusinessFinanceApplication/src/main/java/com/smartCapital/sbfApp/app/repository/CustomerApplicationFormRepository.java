@@ -9,5 +9,5 @@ import com.smartCapital.sbfApp.app.model.CustomerApplicationForm;
 @Repository
 public interface CustomerApplicationFormRepository extends JpaRepository<CustomerApplicationForm, Integer>
 {
-
+	public CustomerApplicationForm findByApplicationId(Integer applicationId);
 }
