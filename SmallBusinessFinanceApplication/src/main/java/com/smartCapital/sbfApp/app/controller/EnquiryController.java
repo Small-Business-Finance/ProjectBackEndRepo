@@ -22,7 +22,7 @@ import com.smartCapital.sbfApp.app.service.EnquiryServiceMapper;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping(value="/enquiryapi")
+@RequestMapping(value="/api")
 public class EnquiryController {
     @Autowired
 	EnquiryService smartcapitalenquiryservice;
@@ -30,44 +30,44 @@ public class EnquiryController {
    public EnquiryServiceMapper enquiryServiceMapper;
    
 	@PostMapping(value = "/enquiry")
-	public ResponseEntity<EnquiryDto> saveEnquiry(@Validated @RequestBody  EnquiryDto enquirydto)
+	public ResponseEntity<String> saveEnquiry(@Validated @RequestBody  EnquiryDto enquirydto)
 	{
 		Enquiry enquiry=enquiryServiceMapper.Instance.toEnquiry(enquirydto);
 		smartcapitalenquiryservice.saveEnquiry(enquiry);
-		//String s="Resource created successfully";
-		EnquiryDto enquirydto1=enquiryServiceMapper.Instance.toEnquiryDto(enquiry);
+		    String s="Resource created successfully";
+		//EnquiryDto enquirydto1=enquiryServiceMapper.Instance.toEnquiryDto(enquiry);
 		
-		return new ResponseEntity<EnquiryDto>( enquirydto1,HttpStatus.CREATED);
+		return new ResponseEntity<String>(s,HttpStatus.CREATED);
 	}
 	
-	@PostMapping(value = "/cibilscore")
-	public ResponseEntity<String> saveCibilScore(@RequestBody  CibilScore cibilscore)
-	{
-		smartcapitalenquiryservice.saveCibilScore(cibilscore);
-		String s="Resource created successfully";
-		return new ResponseEntity<>(s,HttpStatus.CREATED);
-	}
+	/*
+	 * @PostMapping(value = "/cibilscore") public ResponseEntity<String>
+	 * saveCibilScore(@RequestBody CibilScore cibilscore) {
+	 * smartcapitalenquiryservice.saveCibilScore(cibilscore); String
+	 * s="Resource created successfully"; return new
+	 * ResponseEntity<>(s,HttpStatus.CREATED); }
+	 */
 
 	
 	
 	@PutMapping(value = "/enquiry/{enquiryId}")
-	public ResponseEntity<EnquiryDto> updateEnquiry(@RequestBody Enquiry enquiry,@PathVariable("enquiryId") Integer id)
+	public ResponseEntity<String> updateEnquiry(@RequestBody EnquiryDto enquirydto,@PathVariable("enquiryId") Integer id)
 	{
+		  Enquiry enquiry=enquiryServiceMapper.Instance.toEnquiry(enquirydto);
 		smartcapitalenquiryservice.updateEnquiry(id,enquiry);
-		//String s="Resource updated successfully";
-		EnquiryDto enquirydto=enquiryServiceMapper.Instance.toEnquiryDto(enquiry);
-		return new ResponseEntity<EnquiryDto>(enquirydto,HttpStatus.OK);
+		    String s="Resource updated successfully";
+		//EnquiryDto enquirydto=enquiryServiceMapper.Instance.toEnquiryDto(enquiry);
+		return new ResponseEntity<String>(s,HttpStatus.OK);
 	}
 	
 	
-	@PutMapping(value = "/cibilscore/{cibilId}")
-	public ResponseEntity<String> updateCibil(@RequestBody CibilScore cibilscore,@PathVariable("cibilId") Integer id)
-	{
-		smartcapitalenquiryservice.updateCibilScore(id,cibilscore);
-		String s="Resource updated successfully";
-		return new ResponseEntity<>(s,HttpStatus.OK);
-	}
-	
+	/*
+	 * @PutMapping(value = "/cibilscore/{cibilId}") public ResponseEntity<String>
+	 * updateCibil(@RequestBody CibilScore cibilscore,@PathVariable("cibilId")
+	 * Integer id) { smartcapitalenquiryservice.updateCibilScore(id,cibilscore);
+	 * String s="Resource updated successfully"; return new
+	 * ResponseEntity<>(s,HttpStatus.OK); }
+	 */
 	@DeleteMapping(value = "/enquiry/{enquiryId}")
 	public ResponseEntity<String> deleteEnquiry(@PathVariable("enquiryId") Integer id)
 	{
@@ -94,19 +94,19 @@ public class EnquiryController {
 	}
 	
 	
-	@GetMapping(value = "/cibilscores")
-	public ResponseEntity<Iterable<CibilScore>> getCibl()
-	{
-		Iterable<CibilScore> list=smartcapitalenquiryservice.getCibil();
-		return new ResponseEntity<Iterable<CibilScore>>(list,HttpStatus.OK);
-	}
-	
+	/*
+	 * @GetMapping(value = "/cibilscores") public
+	 * ResponseEntity<Iterable<CibilScore>> getCibl() { Iterable<CibilScore>
+	 * list=smartcapitalenquiryservice.getCibil(); return new
+	 * ResponseEntity<Iterable<CibilScore>>(list,HttpStatus.OK); }
+	 */
 	@GetMapping("/cibil/getscore")
 	public ResponseEntity<Double>getCIBILScore()
 	{
 		int min=600;
 		int max=900;
 		double a= Math.random()*(max-min+1)+min;
+		
 		
 		return new ResponseEntity<Double>(a,HttpStatus.OK);
 
