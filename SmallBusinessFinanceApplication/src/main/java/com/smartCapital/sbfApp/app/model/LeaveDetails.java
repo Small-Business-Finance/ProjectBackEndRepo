@@ -17,6 +17,7 @@ public class LeaveDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer leaveAppId;
+	private Integer empId;
 	private String fromDate;
 	private String toDate;
 	private String leaveType;
