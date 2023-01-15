@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.smartCapital.sbfApp.app.model.Employee;
 import com.smartCapital.sbfApp.app.service.EmployeeServiceI;
+import com.smartCapital.sbfApp.app.service.EmployeeServiceIMapper;
 
 @CrossOrigin("*")
 @RequestMapping(value="/employeeapi")
@@ -23,11 +24,13 @@ public class EmployeeController {
 	@Autowired
 	EmployeeServiceI esi;
 	
+	public EmployeeServiceIMapper employeeserviceimapper;
+	
 	@PostMapping(value = "/saveemployee")
 	public ResponseEntity<String> saveEmployee(@RequestBody Employee employee)
 	{
 		esi.saveEmployee(employee);
-		String s= "Employee Saved in Database!!";
+		String s= "Employee details Saved in Database!!";
 		return new ResponseEntity<>(s,HttpStatus.CREATED);
 		
 	}
@@ -35,6 +38,7 @@ public class EmployeeController {
 	public ResponseEntity<String> updateEmployee(@RequestBody Employee employee,@PathVariable("empId") Integer empId)
 	{
 		esi.updateEmployee(empId,employee);
+		System.out.println(employee.getEmpName());
 		String s="Employee details updated successfully";
 		return new ResponseEntity<>(s,HttpStatus.OK);
 	}
@@ -53,7 +57,7 @@ public class EmployeeController {
 		return new ResponseEntity<Iterable<Employee>>(list,HttpStatus.OK);
 	}
 	
-	@GetMapping(value = "/getbyId")
+	@GetMapping(value = "/getbyId/{empId}")
 	public Employee getEmployeebyId(@PathVariable("empId") Integer empId)
 	{
 		Employee employee=esi.getEmployeebyId(empId);
