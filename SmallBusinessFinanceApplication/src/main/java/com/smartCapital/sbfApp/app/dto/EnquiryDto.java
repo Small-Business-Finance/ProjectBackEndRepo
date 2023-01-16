@@ -10,14 +10,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class EnquiryDto 
 {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	
 	private Integer enquiryId;
 	private String customerName;
 	private String companyName;
@@ -33,6 +32,6 @@ public class EnquiryDto
 	private String registrationStatus;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	private CibilScoreDto cibilScoreDto;	
+	private CibilScoreDto cibilscore;	
 
 }
