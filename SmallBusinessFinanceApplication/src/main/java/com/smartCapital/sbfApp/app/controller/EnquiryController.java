@@ -26,12 +26,23 @@ import com.smartCapital.sbfApp.app.service.EnquiryServiceMapper;
 @RequestMapping(value="/enquiryapi")
 public class EnquiryController {
 	
-	 EnquiryServiceMapper enquiryServiceMapper;
+	 
 	 
     @Autowired
 	EnquiryService smartcapitalenquiryservice;
     
-    
+
+    EnquiryServiceMapper enquiryServiceMapper;
+   
+	@PostMapping(value = "/enquiry")
+	public ResponseEntity<String> saveEnquiry(@RequestBody  EnquiryDto enquirydto)
+	{
+		Enquiry enquiry=EnquiryServiceMapper.Instance.toEnquiry(enquirydto);
+		smartcapitalenquiryservice.saveEnquiry(enquiry);
+		    String s="Resource created successfully";
+		EnquiryDto enquirydto1=enquiryServiceMapper.Instance.toEnquiryDto(enquiry);
+    return new ResponseEntity<String>(s,HttpStatus.CREATED);
+  }
    
    
 //	@PostMapping(value = "/enquiry")
@@ -45,15 +56,7 @@ public class EnquiryController {
 //		
 //		return new ResponseEntity<String>(s,HttpStatus.CREATED);
 //	}
-	@PostMapping(value = "/enquiry",consumes = {"application/json","application/xml"})
-	public ResponseEntity<EnquiryDto> saveEnquiry(@Validated @RequestBody  EnquiryDto edto)
-	{
-		Enquiry e=enquiryServiceMapper.Instance.dtotoEnquiry(edto);
-		Enquiry enquiry= smartcapitalenquiryservice.saveEnquiry(e);
-		EnquiryDto edt=enquiryServiceMapper.Instance.entityToDto(enquiry);
-		
-		return new ResponseEntity<EnquiryDto>(edt,HttpStatus.CREATED);
-	}
+
 	
 	/*
 	 * @PostMapping(value = "/cibilscore") public ResponseEntity<String>
