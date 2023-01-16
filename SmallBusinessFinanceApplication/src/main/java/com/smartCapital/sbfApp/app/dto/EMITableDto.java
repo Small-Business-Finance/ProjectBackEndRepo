@@ -7,15 +7,14 @@ import javax.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-@Entity
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 
 public class EMITableDto 
 {
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	
 				private Integer emiDetailsId;
 				private String emiStatus;
 				private Double emiAmount;

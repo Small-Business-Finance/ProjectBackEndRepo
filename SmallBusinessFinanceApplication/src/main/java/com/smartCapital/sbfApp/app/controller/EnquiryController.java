@@ -28,15 +28,15 @@ public class EnquiryController {
     @Autowired
 	EnquiryService smartcapitalenquiryservice;
     
-   public EnquiryServiceMapper enquiryServiceMapper;
+    EnquiryServiceMapper enquiryServiceMapper;
    
 	@PostMapping(value = "/enquiry")
-	public ResponseEntity<String> saveEnquiry(@Validated @RequestBody  EnquiryDto enquirydto)
+	public ResponseEntity<String> saveEnquiry(@RequestBody  EnquiryDto enquirydto)
 	{
-		Enquiry enquiry=enquiryServiceMapper.Instance.toEnquiry(enquirydto);
+		Enquiry enquiry=EnquiryServiceMapper.Instance.toEnquiry(enquirydto);
 		smartcapitalenquiryservice.saveEnquiry(enquiry);
 		    String s="Resource created successfully";
-		//EnquiryDto enquirydto1=enquiryServiceMapper.Instance.toEnquiryDto(enquiry);
+		EnquiryDto enquirydto1=enquiryServiceMapper.Instance.toEnquiryDto(enquiry);
 		
 		return new ResponseEntity<String>(s,HttpStatus.CREATED);
 	}

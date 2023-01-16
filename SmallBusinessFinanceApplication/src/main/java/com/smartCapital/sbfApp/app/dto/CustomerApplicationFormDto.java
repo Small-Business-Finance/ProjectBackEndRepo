@@ -19,14 +19,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class CustomerApplicationFormDto 
 {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+
+	
 	private Integer applicationId;
 	private String applicationStatus;
 	

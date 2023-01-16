@@ -8,10 +8,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+
 public class CustomerDetailsDto 
 {
-	@Id
+
 	private Long aadharId;
 	private String customerName;
 	private String panCardNumber;

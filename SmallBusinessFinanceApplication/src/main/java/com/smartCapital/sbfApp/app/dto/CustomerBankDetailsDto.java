@@ -8,14 +8,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class CustomerBankDetailsDto 
 {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	
 	private Integer bankId;
 	private Long accountNumber;
 	private String bankName;
