@@ -20,13 +20,18 @@ import com.smartCapital.sbfApp.app.model.Enquiry;
 import com.smartCapital.sbfApp.app.service.EnquiryService;
 import com.smartCapital.sbfApp.app.service.EnquiryServiceMapper;
 
+
 @CrossOrigin("*")
 @RestController
-@RequestMapping(value="/api")
+@RequestMapping(value="/enquiryapi")
 public class EnquiryController {
+	
+	 
+	 
     @Autowired
 	EnquiryService smartcapitalenquiryservice;
     
+
     EnquiryServiceMapper enquiryServiceMapper;
    
 	@PostMapping(value = "/enquiry")
@@ -36,9 +41,22 @@ public class EnquiryController {
 		smartcapitalenquiryservice.saveEnquiry(enquiry);
 		    String s="Resource created successfully";
 		EnquiryDto enquirydto1=enquiryServiceMapper.Instance.toEnquiryDto(enquiry);
-		
-		return new ResponseEntity<String>(s,HttpStatus.CREATED);
-	}
+    return new ResponseEntity<String>(s,HttpStatus.CREATED);
+  }
+   
+   
+//	@PostMapping(value = "/enquiry")
+//	public ResponseEntity<String> saveEnquiry(@RequestBody  EnquiryDto enquirydto)
+//	{
+//		Enquiry enquiry=enquiryServiceMapper.Instance.toEnquiry(enquirydto);
+//		System.out.println(enquiry.getCompanyName());
+//		smartcapitalenquiryservice.saveEnquiry(enquiry);
+//		    String s="Resource created successfully";
+//		//EnquiryDto enquirydto1=enquiryServiceMapper.Instance.toEnquiryDto(enquiry);
+//		
+//		return new ResponseEntity<String>(s,HttpStatus.CREATED);
+//	}
+
 	
 	/*
 	 * @PostMapping(value = "/cibilscore") public ResponseEntity<String>
@@ -50,15 +68,15 @@ public class EnquiryController {
 
 	
 	
-	@PutMapping(value = "/enquiry/{enquiryId}")
-	public ResponseEntity<String> updateEnquiry(@RequestBody EnquiryDto enquirydto,@PathVariable("enquiryId") Integer id)
-	{
-		  Enquiry enquiry=enquiryServiceMapper.Instance.toEnquiry(enquirydto);
-		smartcapitalenquiryservice.updateEnquiry(id,enquiry);
-		    String s="Resource updated successfully";
-		//EnquiryDto enquirydto=enquiryServiceMapper.Instance.toEnquiryDto(enquiry);
-		return new ResponseEntity<String>(s,HttpStatus.OK);
-	}
+//	@PutMapping(value = "/enquiry/{enquiryId}")
+//	public ResponseEntity<String> updateEnquiry(@RequestBody EnquiryDto enquirydto,@PathVariable("enquiryId") Integer id)
+//	{
+//		  Enquiry enquiry=enquiryServiceMapper.Instance.toEnquiry(enquirydto);
+//		smartcapitalenquiryservice.updateEnquiry(id,enquiry);
+//		    String s="Resource updated successfully";
+//		//EnquiryDto enquirydto=enquiryServiceMapper.Instance.toEnquiryDto(enquiry);
+//		return new ResponseEntity<String>(s,HttpStatus.OK);
+//	}
 	
 	
 	/*
@@ -86,12 +104,12 @@ public class EnquiryController {
 		return new ResponseEntity<Iterable<EnquiryDto>>( enquirydtoslist,HttpStatus.OK);
 	}
 	
-	@GetMapping("/enquiry/{enquiryId}")
-	public Enquiry getEnquirybyID(@PathVariable("enquiryId") int id)
-	{
-		Enquiry enquiry=smartcapitalenquiryservice.getEnquirybyID(id);
-		return enquiry;
-	}
+//	@GetMapping("/enquiry/{enquiryId}")
+//	public Enquiry getEnquirybyID(@PathVariable("enquiryId") int id)
+//	{
+//		Enquiry enquiry=smartcapitalenquiryservice.getEnquirybyID(id);
+//		return enquiry;
+//	}
 	
 	
 	/*

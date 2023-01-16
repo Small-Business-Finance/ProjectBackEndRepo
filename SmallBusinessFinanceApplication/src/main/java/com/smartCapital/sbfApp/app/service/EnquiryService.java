@@ -5,22 +5,24 @@ import com.smartCapital.sbfApp.app.model.Enquiry;
 
 public interface EnquiryService {
 
-	void saveEnquiry(Enquiry enquiry);
+//	void saveEnquiry(Enquiry enquiry);
 
-	void saveCibilScore(CibilScore cibilscore);
+//	void saveCibilScore(CibilScore cibilscore);
 
 	void updateEnquiry(Integer id, Enquiry enquiry);
 
-	void updateCibilScore(Integer id, CibilScore cibilscore);
+//	void updateCibilScore(Integer id, CibilScore cibilscore);
 
 	void deleteEnquiry(Integer id);
 
 	Iterable<Enquiry> getEnquiry();
 
-	Enquiry getEnquirybyID(int id);
+//	Enquiry getEnquirybyID(int id);
 
-	Iterable<CibilScore> getCibil();
+//	Iterable<CibilScore> getCibil();
 
 	CibilScore getCibilbyID(int id);
+
+	Enquiry saveEnquiry(Enquiry e);
 
 }

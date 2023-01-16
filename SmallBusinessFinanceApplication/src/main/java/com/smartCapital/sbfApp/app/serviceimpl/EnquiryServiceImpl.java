@@ -1,5 +1,7 @@
 package com.smartCapital.sbfApp.app.serviceimpl;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,17 +17,28 @@ public class EnquiryServiceImpl implements EnquiryService{
 
 	@Autowired
 	EnquiryRepository enquiryrepository;
+	@Autowired
 	CibilScoreRepository cibilscorerepository;
+	
+	
+//	@Override
+//	public void saveEnquiry(Enquiry enquiry) {
+//		enquiryrepository.save(enquiry);
+//		
+//	}
+	
 	@Override
-	public void saveEnquiry(Enquiry enquiry) {
-		enquiryrepository.save(enquiry);
+	public Enquiry saveEnquiry(Enquiry enquiry) {
+		System.out.println(enquiry.getCompanyName());
+		return enquiryrepository.save(enquiry);
 		
 	}
-	@Override
-	public void saveCibilScore(CibilScore cibilscore) {
 	
-		cibilscorerepository.save(cibilscore);
-	}
+//	@Override
+//	public void saveCibilScore(CibilScore cibilscore) {
+//	
+//		cibilscorerepository.save(cibilscore);
+//	}
 	
 	@Override
 	public void updateEnquiry(Integer id, Enquiry enquiry) {
@@ -50,15 +63,15 @@ public class EnquiryServiceImpl implements EnquiryService{
 		enquiryrepository.save(enqiryupd);
 		
 	}
-	@Override
-	public void updateCibilScore(Integer id, CibilScore cibilscore) {
-		CibilScore cibilscoreupd= cibilscorerepository.findByCibilId(id);
-		cibilscoreupd.setCibilId(cibilscore.getCibilId());
-		cibilscoreupd.setCibilScore(cibilscore.getCibilScore());
-		cibilscoreupd.setCibilRemark(cibilscore.getCibilRemark());
-		cibilscorerepository.save(cibilscoreupd);
-		
-	}
+//	@Override
+//	public void updateCibilScore(Integer id, CibilScore cibilscore) {
+//		CibilScore cibilscoreupd= cibilscorerepository.findByCibilId(id);
+//		cibilscoreupd.setCibilId(cibilscore.getCibilId());
+//		cibilscoreupd.setCibilScore(cibilscore.getCibilScore());
+//		cibilscoreupd.setCibilRemark(cibilscore.getCibilRemark());
+//		cibilscorerepository.save(cibilscoreupd);
+//		
+//	}
 	@Override
 	public void deleteEnquiry(Integer id) {
 		enquiryrepository.deleteById(id);
@@ -69,16 +82,16 @@ public class EnquiryServiceImpl implements EnquiryService{
 		
 		return enquiryrepository.findAll();
 	}
-	@Override
-	public Enquiry getEnquirybyID(int id) {
-		
-		return enquiryrepository.findByEnquiryId(id);
-	}
-	@Override
-	public Iterable<CibilScore> getCibil() {
-		
-		return cibilscorerepository.findAll();
-	}
+//	@Override
+//	public Enquiry getEnquirybyID(int id) {
+//		
+//		return enquiryrepository.findByEnquiryId(id);
+//	}
+//	@Override
+//	public Iterable<CibilScore> getCibil() {
+//		
+//		return cibilscorerepository.findAll();
+//	}
 	@Override
 	public CibilScore getCibilbyID(int id) {
 		
