@@ -8,14 +8,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class SanctionLetterDto 
 {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	
 	private Integer sanctionedLoanId;
 	private String customerName;
 	private Double sanctionedLoanAmount;

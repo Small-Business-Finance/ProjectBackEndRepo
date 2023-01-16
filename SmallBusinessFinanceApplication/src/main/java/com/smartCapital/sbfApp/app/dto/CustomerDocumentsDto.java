@@ -9,14 +9,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class CustomerDocumentsDto 
 {
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+
 	private Integer documentId;
 	@Lob
 	private byte[] itrReturns;
