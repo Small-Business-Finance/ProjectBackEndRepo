@@ -15,6 +15,7 @@ public class LeaveDetailsDto
 {
 	
 	private Integer leaveAppId;
+	private Integer empId;
 	private String fromDate;
 	private String toDate;
 	private String leaveType;

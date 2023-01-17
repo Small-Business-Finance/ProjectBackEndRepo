@@ -1,9 +1,12 @@
 package com.smartCapital.sbfApp.app.dto;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,5 +28,6 @@ public class EmployeeDto
 	private long empMobileno;
 	private String empEmailId;
 	
-
+//	@OneToMany(cascade = CascadeType.ALL)
+//	private LeaveDetailsDto leavedetaildto;
 }
