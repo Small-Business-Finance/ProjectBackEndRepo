@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -44,7 +45,7 @@ public class CustomerApplicationFormController {
 //		return "data added successfully";
 //	}
 	
-	@PostMapping(value = "/application")
+	@PostMapping(value = "/application",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	public ResponseEntity<String> saveApplicationForm(@RequestPart("itrReturns") MultipartFile file1,
 			@RequestPart("pancard") MultipartFile file2,
 			@RequestPart("moa") MultipartFile file3,
@@ -139,6 +140,7 @@ public class CustomerApplicationFormController {
 	@GetMapping(value = "/applications")
 	public ResponseEntity<Iterable<CustomerApplicationForm>> getApplications()
 	{
+		System.out.println("get......");
 		Iterable<CustomerApplicationForm> list=csi.getApplications();
 		return new ResponseEntity<Iterable<CustomerApplicationForm>>(list,HttpStatus.OK);
 	}
