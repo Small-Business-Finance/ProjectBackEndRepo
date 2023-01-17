@@ -16,8 +16,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class EnquiryDto 
 {
-	
-	
 	private Integer enquiryId;
 	private String customerName;
 	private String companyName;

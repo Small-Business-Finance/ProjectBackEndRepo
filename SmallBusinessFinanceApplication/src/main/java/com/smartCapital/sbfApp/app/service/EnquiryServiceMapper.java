@@ -15,6 +15,8 @@ public interface EnquiryServiceMapper
 	public EnquiryDto toEnquiryDto(Enquiry enquiry);
 	public Iterable<Enquiry> toEnquiries(Iterable<EnquiryDto> enquirydtolist);
 	public Iterable<EnquiryDto> toEnquiriesDto(Iterable<Enquiry> enquirylist);
+//	public Enquiry dtotoEnquiry(EnquiryDto edto);
+//	public EnquiryDto entityToDto(Enquiry enquiry);
 	
 
 }
