@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.smartCapital.sbfApp.app.model.Employee;
 import com.smartCapital.sbfApp.app.model.Enquiry;
 import com.smartCapital.sbfApp.app.model.LeaveDetails;
 import com.smartCapital.sbfApp.app.service.LeaveDetailService;
@@ -32,15 +35,35 @@ public class LeaveDetailController {
 	}
 
 	
-	@PutMapping(value = "/leavedetail/{empId}/{leaveAppId}")
-	public ResponseEntity<String> updateLeaveDetail(@RequestBody LeaveDetails leavedetails,@PathVariable("leaveAppId") Integer id,@PathVariable("empId") Integer empId)
+	@PutMapping(value = "/leavedetail/{leaveAppId}")
+	public ResponseEntity<String> updateLeaveDetail(@RequestBody LeaveDetails leavedetails,@PathVariable("leaveAppId") Integer id)
 	{
-		leavedetailservice.updateLeaveDetail(empId,id,leavedetails);
+		leavedetailservice.updateLeaveDetail(id,leavedetails);
 		String s="Resource updated successfully";
 		return new ResponseEntity<>(s,HttpStatus.OK);
 	}
 	
+	@GetMapping(value = "/getallleavedetail")
+	public ResponseEntity<Iterable<LeaveDetails>> getLeaveDetails()
+	{
+		Iterable<LeaveDetails> list=leavedetailservice.getLeaveDetails();
+		
+		return new ResponseEntity<Iterable<LeaveDetails>>(list,HttpStatus.OK);
+	}
 	
+	@DeleteMapping(value = "/leavedetail/{leaveAppId}")
+	public ResponseEntity<String> deleteLeaveDetail(@PathVariable("leaveAppId") Integer leaveAppId)
+	{
+		System.out.println(leaveAppId);
+		leavedetailservice.deleteLeaveDetail(leaveAppId);
+		String s="Source deleted by id ";
+		return new ResponseEntity<>(s,HttpStatus.NO_CONTENT);
+	}
 	
-	
+	@GetMapping(value = "/getbyId/{leaveAppId}")
+	public LeaveDetails getLeaveDetailbyId(@PathVariable("leaveAppId") Integer leaveAppId)
+	{
+		LeaveDetails leavedetails=leavedetailservice.getLeaveDetailbyId(leaveAppId);
+		return leavedetails;
+	}
 }
