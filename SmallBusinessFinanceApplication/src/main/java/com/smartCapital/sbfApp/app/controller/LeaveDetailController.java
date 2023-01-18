@@ -36,9 +36,9 @@ public class LeaveDetailController {
 
 	
 	@PutMapping(value = "/leavedetail/{leaveAppId}")
-	public ResponseEntity<String> updateLeaveDetail(@RequestBody LeaveDetails leavedetails,@PathVariable("leaveAppId") Integer id)
+	public ResponseEntity<String> updateLeaveDetail(@RequestBody LeaveDetails leavedetails,@PathVariable("leaveAppId") Integer leaveAppId)
 	{
-		leavedetailservice.updateLeaveDetail(id,leavedetails);
+		leavedetailservice.updateLeaveDetail(leaveAppId,leavedetails);
 		String s="Resource updated successfully";
 		return new ResponseEntity<>(s,HttpStatus.OK);
 	}

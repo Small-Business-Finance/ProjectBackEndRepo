@@ -8,6 +8,6 @@ import com.smartCapital.sbfApp.app.model.LeaveDetails;
 @Repository
 public interface LeaveDetailRepository extends CrudRepository<LeaveDetails, Integer> {
 
-	LeaveDetails findByLeaveDetailId(Integer id);
+	LeaveDetails findByLeaveAppId(Integer leaveAppId);
 
 }

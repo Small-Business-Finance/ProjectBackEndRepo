@@ -7,7 +7,7 @@ public interface LeaveDetailService {
 
 	void saveLeaveDetail(LeaveDetails leavedetails);
 
-	void updateLeaveDetail( Integer id, LeaveDetails leavedetails);
+	void updateLeaveDetail( Integer leaveAppId, LeaveDetails leavedetails);
 
 	Iterable<LeaveDetails> getLeaveDetails();
 
