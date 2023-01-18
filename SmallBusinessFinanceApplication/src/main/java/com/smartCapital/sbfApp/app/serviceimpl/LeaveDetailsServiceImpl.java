@@ -21,8 +21,8 @@ public class LeaveDetailsServiceImpl implements LeaveDetailService{
 	}
 	
 	@Override
-	public void updateLeaveDetail(Integer id, LeaveDetails leavedetails) {
-		LeaveDetails leavedetailutd=leavedetailrepository.findByLeaveDetailId(id);
+	public void updateLeaveDetail(Integer leaveAppId, LeaveDetails leavedetails) {
+		LeaveDetails leavedetailutd=leavedetailrepository.findByLeaveAppId(leaveAppId);
 		leavedetailutd.setLeaveAppId(leavedetails.getLeaveAppId());
 		leavedetailutd.setEmpId(leavedetails.getEmpId());
 		leavedetailutd.setFromDate(leavedetails.getFromDate());
@@ -47,7 +47,7 @@ public class LeaveDetailsServiceImpl implements LeaveDetailService{
 	@Override
 	public LeaveDetails getLeaveDetailbyId(Integer leaveAppId) {
 		
-		return leavedetailrepository.findByLeaveDetailId(leaveAppId) ;
+		return leavedetailrepository.findByLeaveAppId(leaveAppId) ;
 	}
 
 }
