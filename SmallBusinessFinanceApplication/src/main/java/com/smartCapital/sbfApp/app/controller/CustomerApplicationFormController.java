@@ -115,6 +115,7 @@ public class CustomerApplicationFormController {
 		cld.setExpectedLoanAmount(cmf.getCustomerLoanDetails().getExpectedLoanAmount());
 		cld.setExpectedLoanTenure(cmf.getCustomerLoanDetails().getExpectedLoanTenure());
 		cld.setExpectedEmiAmount(cmf.getCustomerLoanDetails().getExpectedEmiAmount());
+		cld.setRateOfInterest(cmf.getCustomerLoanDetails().getRateOfInterest());
 		cld.setLoanStatus(cmf.getCustomerLoanDetails().getLoanStatus());
 		cld.setLoanDisbursedStatus(cmf.getCustomerLoanDetails().getLoanDisbursedStatus());
 		cf.setCustomerLoanDetails(cld);
