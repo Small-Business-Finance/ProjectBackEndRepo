@@ -22,11 +22,17 @@ public class EmailSenderServiceImpl implements EmailSenderServiceI{
 	public void sendEmail(EmailSender e) {
 		
 		SimpleMailMessage message=new SimpleMailMessage();
-		message.setTo(e.getToEmail());
-		message.setFrom(e.getFromEmail());
-		message.setText(e.getMessage());
-		message.setSubject(e.getSubject());
+//		message.setTo(e.getToEmail());
+//		message.setFrom(e.getFromEmail());
+//		message.setText(e.getMessage());
+//		message.setSubject(e.getSubject());
 		
+		message.setTo(e.getEmailid());
+		message.setFrom(e.getFromemailid());
+		message.setSubject(e.getQuery());
+		message.setText(e.getPhonenumber());
+		message.setText(e.getFullname());
+				
 		sender.send(message);
 	}
 
@@ -36,10 +42,10 @@ public class EmailSenderServiceImpl implements EmailSenderServiceI{
 		
 		   try{
 			MimeMessageHelper helper = new MimeMessageHelper(message, true);
-			helper.setTo(e.getToEmail());
-			helper.setFrom(e.getFromEmail());
-			helper.setText(e.getMessage());
-			helper.setSubject(e.getSubject());
+//			helper.setTo(e.getToEmail());
+//			helper.setFrom(e.getFromEmail());
+//			helper.setText(e.getMessage());
+//			helper.setSubject(e.getSubject());
 			
 			FileSystemResource resource=new FileSystemResource("D:\\FileUploadinspringbootrestapi.pdf");
 			
