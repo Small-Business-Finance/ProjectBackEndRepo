@@ -2,6 +2,7 @@ package com.smartCapital.sbfApp.app.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -16,6 +17,7 @@ import com.smartCapital.sbfApp.app.model.SanctionLetter;
 import com.smartCapital.sbfApp.app.service.EmailSenderServiceI;
 import com.smartCapital.sbfApp.app.service.EmailSenderServiceIMapper;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping(value="/emailsenderapi")
 public class EmailSenderController {
@@ -37,8 +39,11 @@ public class EmailSenderController {
 			EmailSender e=emailsenderserviceimapper.Instance.toEmailSender(edto);
 			esi.sendEmail(e);
 		} catch (Exception e2) {
+			System.out.println("Email Not Sent");
+			e2.printStackTrace();
 			return "Email not sent";
 		}
+		System.out.println("Email Sent");
 		return "Email Sent";
 	}
 	@PostMapping(value="/send")
