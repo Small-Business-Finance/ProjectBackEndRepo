@@ -117,15 +117,29 @@ public class EnquiryController {
 	  list=smartcapitalenquiryservice.getCibil(); return new
 	  ResponseEntity<Iterable<CibilScore>>(list,HttpStatus.OK); }
 	 
-	@GetMapping("/cibil/getscore")
-	public ResponseEntity<Double>getCIBILScore()
+	@GetMapping("/cibil/getscore/{id}")
+	public ResponseEntity<Integer>getCIBILScore(@PathVariable("id") Integer id)
 	{
 		int min=600;
 		int max=900;
-		double a= Math.random()*(max-min+1)+min;
-		
-		
-		return new ResponseEntity<Double>(a,HttpStatus.OK);
+		int a= (int) (Math.random()*(max-min+1)+min);
+		Enquiry xx=smartcapitalenquiryservice.getEnquirybyID(id);
+		CibilScore cbl=new CibilScore() ;
+		cbl.setCibilScore(a);
+		if(a>800)
+		cbl.setCibilRemark("Excellent");
+		else if(a<=800 && a>=761)
+		cbl.setCibilRemark("Good");
+		else if(a<761 && a>=701)
+		cbl.setCibilRemark("Fair");
+		else if(a<=700 && a>650)
+		cbl.setCibilRemark("Low");
+		else
+		cbl.setCibilRemark("Bad");
+		xx.setCibilscore(cbl);
+		xx.setEnquiryStatus("Cibil Generated");
+		smartcapitalenquiryservice.updateEnquiry(id, xx);
+		return new ResponseEntity<Integer>(a,HttpStatus.OK);
 
 	}
 }
