@@ -16,6 +16,7 @@ import com.smartCapital.sbfApp.app.model.SanctionLetter;
 import com.smartCapital.sbfApp.app.service.EmailSenderServiceI;
 import com.smartCapital.sbfApp.app.service.EmailSenderServiceIMapper;
 
+
 @RestController
 @RequestMapping(value="/emailsenderapi")
 public class EmailSenderController {
@@ -32,10 +33,10 @@ public class EmailSenderController {
 	@PostMapping(value="/emailsend")
 	public String sendEmail(@RequestBody EmailSenderDto edto)
 	{
-		//e.setFromEmail(fromEmail);
+		edto.setFromEmail(fromEmail);
 		try {
-			EmailSender e=emailsenderserviceimapper.Instance.toEmailSender(edto);
-			esi.sendEmail(e);
+			//EmailSender e=emailsenderserviceimapper.Instance.toEmailSender(edto);
+			//esi.sendEmail(edto);
 		} catch (Exception e2) {
 			return "Email not sent";
 		}
