@@ -2,13 +2,17 @@ package com.smartCapital.sbfApp.app.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.smartCapital.sbfApp.app.dto.EmailSenderDto;
+import com.smartCapital.sbfApp.app.model.CustomerApplicationForm;
 import com.smartCapital.sbfApp.app.model.EmailSender;
+import com.smartCapital.sbfApp.app.model.SanctionLetter;
 import com.smartCapital.sbfApp.app.service.EmailSenderServiceI;
 import com.smartCapital.sbfApp.app.service.EmailSenderServiceIMapper;
 
@@ -51,4 +55,5 @@ public class EmailSenderController {
 		}
 		return "Email Sent!!";
 	}
+	
 }
