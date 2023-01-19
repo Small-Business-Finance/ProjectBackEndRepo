@@ -17,7 +17,7 @@ void updateCibilScore(Integer id, CibilScore cibilscore);
 
 	Iterable<Enquiry> getEnquiry();
 
-//	Enquiry getEnquirybyID(int id);
+	Enquiry getEnquirybyID(int id);
 
 	Iterable<CibilScore> getCibil();
 
