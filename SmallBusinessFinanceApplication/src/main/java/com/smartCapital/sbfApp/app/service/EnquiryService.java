@@ -7,11 +7,11 @@ public interface EnquiryService {
 
 //	void saveEnquiry(Enquiry enquiry);
 
-//	void saveCibilScore(CibilScore cibilscore);
+//void saveCibilScore(CibilScore cibilscore);
 
 	void updateEnquiry(Integer id, Enquiry enquiry);
 
-//	void updateCibilScore(Integer id, CibilScore cibilscore);
+void updateCibilScore(Integer id, CibilScore cibilscore);
 
 	void deleteEnquiry(Integer id);
 
@@ -19,7 +19,7 @@ public interface EnquiryService {
 
 //	Enquiry getEnquirybyID(int id);
 
-//	Iterable<CibilScore> getCibil();
+	Iterable<CibilScore> getCibil();
 
 	CibilScore getCibilbyID(int id);
 
