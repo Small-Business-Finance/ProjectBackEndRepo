@@ -82,11 +82,11 @@ public class EnquiryServiceImpl implements EnquiryService{
 		
 		return enquiryrepository.findAll();
 	}
-//	@Override
-//	public Enquiry getEnquirybyID(int id) {
-//		
-//		return enquiryrepository.findByEnquiryId(id);
-//	}
+	@Override
+	public Enquiry getEnquirybyID(int id) {
+		
+		return enquiryrepository.findByEnquiryId(id);
+	}
 	@Override
 	public Iterable<CibilScore> getCibil() {
 		
