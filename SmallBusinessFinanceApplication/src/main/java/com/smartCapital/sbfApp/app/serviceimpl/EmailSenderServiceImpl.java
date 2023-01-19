@@ -1,5 +1,6 @@
 package com.smartCapital.sbfApp.app.serviceimpl;
 
+import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,5 +60,29 @@ public class EmailSenderServiceImpl implements EmailSenderServiceI{
 		
 	}
 
+	@Override
+	public void sendSanctionMail(String toEmail, EmailSender em) throws Exception 
+	{
+		
+			MimeMessage message=sender.createMimeMessage();
+			MimeMessageHelper helper;
+			try {
+				helper = new MimeMessageHelper(message,true);
+				helper.setTo(toEmail);
+				helper.setText(em.getMessage()+"\n Please visit our office for any Query or contact us at www.sfc.com\n Thank You !\n\n Regards,\n SFC family.");
+				helper.setSubject("Loan Sanction Letter");
+			} catch (MessagingException e) {
+				
+				e.printStackTrace();
+			}
+			
+			sender.send(message);
+			System.out.println("mail sent for sanction letter....");
+			
+		}
+		
+	
+
 	
 }
+

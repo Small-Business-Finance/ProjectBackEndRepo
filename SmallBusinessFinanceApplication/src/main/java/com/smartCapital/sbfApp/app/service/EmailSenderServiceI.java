@@ -9,5 +9,7 @@ public interface EmailSenderServiceI {
 
 	public void sendEmailWithAttachment(EmailSender e);
 
+	public void sendSanctionMail(String toEmail, EmailSender em) throws Exception;
+
 	
 }
