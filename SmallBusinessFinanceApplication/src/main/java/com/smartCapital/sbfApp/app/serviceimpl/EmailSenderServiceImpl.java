@@ -9,7 +9,10 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
 
+import com.smartCapital.sbfApp.app.model.CustomerApplicationForm;
 import com.smartCapital.sbfApp.app.model.EmailSender;
+import com.smartCapital.sbfApp.app.model.SanctionLetter;
+import com.smartCapital.sbfApp.app.repository.CustomerApplicationFormRepository;
 import com.smartCapital.sbfApp.app.service.EmailSenderServiceI;
 
 @Component
@@ -17,6 +20,9 @@ public class EmailSenderServiceImpl implements EmailSenderServiceI{
 
 	@Autowired
 	JavaMailSender sender;
+	
+	@Autowired
+	CustomerApplicationFormRepository cr;
 	
 	@Override
 	public void sendEmail(EmailSender e) {
@@ -52,4 +58,6 @@ public class EmailSenderServiceImpl implements EmailSenderServiceI{
 		     }
 		
 	}
+
+	
 }
