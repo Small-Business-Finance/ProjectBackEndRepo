@@ -43,8 +43,11 @@ public class EmailSenderController {
 			
 			esi.sendEmail(e);
 		} catch (Exception e2) {
+			System.out.println("Email Not Sent");
+			e2.printStackTrace();
 			return "Email not sent";
 		}
+		System.out.println("Email Sent");
 		return "Email Sent";
 	}
 	@PostMapping(value="/send")
