@@ -58,7 +58,7 @@ public class PdfServiceImpl implements PdfServiceI
 	public void generatePdf(HttpServletResponse response, Integer applicationId) throws DocumentException, IOException {
 		
 		CustomerApplicationForm cf =cr.findByApplicationId(applicationId);
-		String cd = cf.getCustomerDetails().getCustomerName();
+		
 		Document document = new Document(PageSize.A4);
 		PdfWriter.getInstance(document, response.getOutputStream());
 
