@@ -115,6 +115,7 @@ public class CustomerApplicationFormController {
 		cld.setLoanDisbursedStatus(cmf.getCustomerLoanDetails().getLoanDisbursedStatus());
 		cf.setCustomerLoanDetails(cld);
 		
+		
 		CustomerDocuments cd=new CustomerDocuments();
 		cd.setItrReturns(file1.getBytes());
 		cd.setPancard(file2.getBytes());
@@ -168,4 +169,6 @@ public class CustomerApplicationFormController {
 		String s="record deleted";
 		return new ResponseEntity<String>(s,HttpStatus.NO_CONTENT);
 	}
+	
+	
 }

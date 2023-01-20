@@ -3,6 +3,7 @@ package com.smartCapital.sbfApp.app.service;
 import java.util.List;
 
 import com.smartCapital.sbfApp.app.model.CustomerApplicationForm;
+import com.smartCapital.sbfApp.app.model.SanctionLetter;
 
 public interface CustomerApplicationFormServiceI {
 
@@ -15,5 +16,7 @@ public interface CustomerApplicationFormServiceI {
 	void deleteCustomer(Integer applicationId);
 
 	CustomerApplicationForm getApplicationById(Integer applicationId);
+
+	
 
 }
