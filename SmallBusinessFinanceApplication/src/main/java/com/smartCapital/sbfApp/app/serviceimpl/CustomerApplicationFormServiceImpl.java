@@ -13,6 +13,7 @@ import com.smartCapital.sbfApp.app.model.CustomerDocuments;
 import com.smartCapital.sbfApp.app.model.CustomerLoanDetails;
 import com.smartCapital.sbfApp.app.model.GuarantorDetails;
 import com.smartCapital.sbfApp.app.model.PreviousLoanDetails;
+import com.smartCapital.sbfApp.app.model.SanctionLetter;
 import com.smartCapital.sbfApp.app.repository.CustomerApplicationFormRepository;
 import com.smartCapital.sbfApp.app.service.CustomerApplicationFormServiceI;
 
@@ -21,6 +22,8 @@ public class CustomerApplicationFormServiceImpl implements CustomerApplicationFo
 {
 	@Autowired
 	CustomerApplicationFormRepository cr;
+	
+	
 
 	@Override
 	public void saveApplicationForm(CustomerApplicationForm c) {
@@ -56,6 +59,8 @@ public class CustomerApplicationFormServiceImpl implements CustomerApplicationFo
 		
 		return cr.findByApplicationId(applicationId);
 	}
+
+	
 
 	
 }
