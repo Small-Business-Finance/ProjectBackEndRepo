@@ -23,6 +23,7 @@ public class SanctionLetter {
 	private Integer applicationId;
 	private String customerName;
 	private Double expectedLoanAmount;
+	private String emailId;
 	private Double rateOfInterest;
 	private Double expectedLoanTenure;
 	private Double emiAmount;

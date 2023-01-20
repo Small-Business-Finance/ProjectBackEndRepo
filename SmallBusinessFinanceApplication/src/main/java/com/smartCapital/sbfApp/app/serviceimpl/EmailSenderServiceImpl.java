@@ -61,15 +61,15 @@ public class EmailSenderServiceImpl implements EmailSenderServiceI{
 	}
 
 	@Override
-	public void sendSanctionMail(String toEmail, EmailSender em) throws Exception 
+	public void sendSanctionMail(EmailSender em) throws Exception 
 	{
 		
 			MimeMessage message=sender.createMimeMessage();
 			MimeMessageHelper helper;
 			try {
 				helper = new MimeMessageHelper(message,true);
-				helper.setTo(toEmail);
-				helper.setText(em.getMessage()+"\n Please visit our office for any Query or contact us at www.sfc.com\n Thank You !\n\n Regards,\n SFC family.");
+				helper.setTo(em.getToEmail());
+				helper.setText(em.getMessage()+"\nPlease visit our office for any Query or contact us at www.sfc.com\nThank You !\n\nRegards,\nSFC family.");
 				helper.setSubject("Loan Sanction Letter");
 			} catch (MessagingException e) {
 				
