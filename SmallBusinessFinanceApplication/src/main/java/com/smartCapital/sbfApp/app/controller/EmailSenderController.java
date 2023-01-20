@@ -67,14 +67,14 @@ public class EmailSenderController {
 	
 	
 	@PostMapping(value = "/mail")
-	public void sendSanctionMail(@RequestBody EmailSender em) throws Exception
+	public void sendSanctionMail(@RequestBody SanctionLetter sl) throws Exception
 	{
-		SanctionLetter sl=new SanctionLetter();
+		EmailSender em=new EmailSender();
 		em.setFromEmail(fromEmail);
-		em.setToEmail(em.getToEmail());
+		em.setToEmail(sl.getEmailId());
 		em.setSubject("Loan Sanction Letter");
-		em.setMessage("Dear"+sl.getCustomerName()+"\n"+"We are happy to inform you that,"+"\n"+"your business loan for the amount"+sl.getExpectedLoanAmount()+
-				"has been sanctioned.Please read terms and conditions carefully for the same.");
+		em.setMessage("Dear "+sl.getCustomerName()+"\n"+"We are happy to inform you that,"+"\n"+"your business loan for the amount "+sl.getExpectedLoanAmount()+
+				" has been sanctioned.Please read terms and conditions carefully for the same.");
 		
 		esi.sendSanctionMail(em);
 	}
