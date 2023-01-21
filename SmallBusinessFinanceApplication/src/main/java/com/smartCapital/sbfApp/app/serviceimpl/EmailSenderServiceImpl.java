@@ -84,5 +84,26 @@ public class EmailSenderServiceImpl implements EmailSenderServiceI{
 	
 
 	
+
+	@Override
+	public void sendRejectionMail(EmailSender em) 
+	{
+
+		MimeMessage message=sender.createMimeMessage();
+		MimeMessageHelper helper;
+		try {
+			helper = new MimeMessageHelper(message,true);
+			helper.setTo(em.getToEmail());
+			helper.setText(em.getMessage()+"\nThank you for approching us.\nYou can reapply for the loan after meeting the set conditions\n\nRegards,\nSFC family.");
+			helper.setSubject("Loan Rejection Letter");
+		} catch (MessagingException e) {
+			
+			e.printStackTrace();
+		}
+		
+		sender.send(message);
+		System.out.println("mail sent for Loan rejection....");
+	}
+	
 }
 

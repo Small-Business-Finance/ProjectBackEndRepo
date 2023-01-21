@@ -12,5 +12,7 @@ public interface EmailSenderServiceI {
 
 	public void sendSanctionMail(EmailSender em) throws Exception;
 
+	public void sendRejectionMail(EmailSender em);
+
 	
 }
