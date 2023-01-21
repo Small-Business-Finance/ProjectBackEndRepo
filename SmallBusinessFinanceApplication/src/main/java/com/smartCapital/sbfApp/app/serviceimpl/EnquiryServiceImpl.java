@@ -50,7 +50,7 @@ public class EnquiryServiceImpl implements EnquiryService{
 		//enqiryupd.setCompanyRegistrationNumber(enquiry.getCompanyRegistrationNumber());
 		enqiryupd.setTypesOfBusiness(enquiry.getTypesOfBusiness());
 		//enqiryupd.setCompanyAddress(enquiry.getCompanyAddress());
-		enqiryupd.setCustomerName(enquiry.getCompanyName());
+		enqiryupd.setCustomerName(enquiry.getCustomerName());
 		enqiryupd.setCompanyPancardNumber(enquiry.getCompanyPancardNumber());
 		enqiryupd.setCustomerPancardNumber(enquiry.getCustomerPancardNumber());
 		enqiryupd.setMobileNumber(enquiry.getMobileNumber());
@@ -63,15 +63,15 @@ public class EnquiryServiceImpl implements EnquiryService{
 		enquiryrepository.save(enqiryupd);
 		
 	}
-//	@Override
-//	public void updateCibilScore(Integer id, CibilScore cibilscore) {
-//		CibilScore cibilscoreupd= cibilscorerepository.findByCibilId(id);
-//		cibilscoreupd.setCibilId(cibilscore.getCibilId());
-//		cibilscoreupd.setCibilScore(cibilscore.getCibilScore());
-//		cibilscoreupd.setCibilRemark(cibilscore.getCibilRemark());
-//		cibilscorerepository.save(cibilscoreupd);
-//		
-//	}
+	@Override
+	public void updateCibilScore(Integer id, CibilScore cibilscore) {
+		CibilScore cibilscoreupd= cibilscorerepository.findByCibilId(id);
+		cibilscoreupd.setCibilId(cibilscore.getCibilId());
+		cibilscoreupd.setCibilScore(cibilscore.getCibilScore());
+		cibilscoreupd.setCibilRemark(cibilscore.getCibilRemark());
+		cibilscorerepository.save(cibilscoreupd);
+		
+	}
 	@Override
 	public void deleteEnquiry(Integer id) {
 		enquiryrepository.deleteById(id);
@@ -82,16 +82,16 @@ public class EnquiryServiceImpl implements EnquiryService{
 		
 		return enquiryrepository.findAll();
 	}
-//	@Override
-//	public Enquiry getEnquirybyID(int id) {
-//		
-//		return enquiryrepository.findByEnquiryId(id);
-//	}
-//	@Override
-//	public Iterable<CibilScore> getCibil() {
-//		
-//		return cibilscorerepository.findAll();
-//	}
+	@Override
+	public Enquiry getEnquirybyID(int id) {
+		
+		return enquiryrepository.findByEnquiryId(id);
+	}
+	@Override
+	public Iterable<CibilScore> getCibil() {
+		
+		return cibilscorerepository.findAll();
+	}
 	@Override
 	public CibilScore getCibilbyID(int id) {
 		

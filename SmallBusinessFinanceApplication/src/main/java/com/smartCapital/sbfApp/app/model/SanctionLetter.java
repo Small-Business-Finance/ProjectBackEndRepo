@@ -20,11 +20,13 @@ public class SanctionLetter {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer sanctionedLoanId;
+	private Integer applicationId;
 	private String customerName;
-	private Double sanctionedLoanAmount;
-	private Double sanctionedTenure;
+	private Double expectedLoanAmount;
+	private String emailId;
+	private Double rateOfInterest;
+	private Double expectedLoanTenure;
 	private Double emiAmount;
-	private Long disbursedAmount;
-	private Integer defaulterCount;
+	
 
 }

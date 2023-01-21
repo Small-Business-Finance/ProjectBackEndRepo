@@ -22,8 +22,10 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.smartCapital.sbfApp.app.model.CustomerDocuments;
 import com.smartCapital.sbfApp.app.model.CustomerLoanDetails;
+import com.smartCapital.sbfApp.app.model.EMITable;
 import com.smartCapital.sbfApp.app.model.GuarantorDetails;
 import com.smartCapital.sbfApp.app.model.PreviousLoanDetails;
+import com.smartCapital.sbfApp.app.model.SanctionLetter;
 import com.smartCapital.sbfApp.app.model.CustomerApplicationForm;
 import com.smartCapital.sbfApp.app.model.CustomerBankDetails;
 import com.smartCapital.sbfApp.app.model.CustomerCompanyDetails;
@@ -38,12 +40,6 @@ public class CustomerApplicationFormController {
 	@Autowired
 	CustomerApplicationFormServiceI csi;
 	
-//	@PostMapping(value = "/application")
-//	public String saveApplicationForm(@RequestBody CustomerApplicationForm c)
-//	{
-//		csi.saveApplicationForm(c);
-//		return "data added successfully";
-//	}
 	
 	@PostMapping(value = "/application",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	public ResponseEntity<String> saveApplicationForm(@RequestPart("itrReturns") MultipartFile file1,
@@ -114,10 +110,19 @@ public class CustomerApplicationFormController {
 		CustomerLoanDetails cld=new CustomerLoanDetails();	
 		cld.setExpectedLoanAmount(cmf.getCustomerLoanDetails().getExpectedLoanAmount());
 		cld.setExpectedLoanTenure(cmf.getCustomerLoanDetails().getExpectedLoanTenure());
-		cld.setExpectedEmiAmount(cmf.getCustomerLoanDetails().getExpectedEmiAmount());
+		cld.setRateOfInterest(cmf.getCustomerLoanDetails().getRateOfInterest());
 		cld.setLoanStatus(cmf.getCustomerLoanDetails().getLoanStatus());
 		cld.setLoanDisbursedStatus(cmf.getCustomerLoanDetails().getLoanDisbursedStatus());
+		cld.setDefaultorCount(cmf.getCustomerLoanDetails().getDefaultorCount());
+		
+		EMITable et=new EMITable();
+		et.setEmiStatus(cmf.getCustomerLoanDetails().getEmitable().getEmiStatus());
+		et.setEmiTenure(cmf.getCustomerLoanDetails().getEmitable().getEmiTenure());
+		et.setEmiAmount(cmf.getCustomerLoanDetails().getEmitable().getEmiAmount());
+		et.setEmidate(cmf.getCustomerLoanDetails().getEmitable().getEmidate());
+		cld.setEmitable(et);		
 		cf.setCustomerLoanDetails(cld);
+		
 		
 		CustomerDocuments cd=new CustomerDocuments();
 		cd.setItrReturns(file1.getBytes());

@@ -1,5 +1,6 @@
 package com.smartCapital.sbfApp.app.serviceimpl;
 
+import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,10 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
 
+import com.smartCapital.sbfApp.app.model.CustomerApplicationForm;
 import com.smartCapital.sbfApp.app.model.EmailSender;
+import com.smartCapital.sbfApp.app.model.SanctionLetter;
+import com.smartCapital.sbfApp.app.repository.CustomerApplicationFormRepository;
 import com.smartCapital.sbfApp.app.service.EmailSenderServiceI;
 
 @Component
@@ -18,21 +22,18 @@ public class EmailSenderServiceImpl implements EmailSenderServiceI{
 	@Autowired
 	JavaMailSender sender;
 	
+	@Autowired
+	CustomerApplicationFormRepository cr;
+	
 	@Override
 	public void sendEmail(EmailSender e) {
 		
 		SimpleMailMessage message=new SimpleMailMessage();
-//		message.setTo(e.getToEmail());
-//		message.setFrom(e.getFromEmail());
-//		message.setText(e.getMessage());
-//		message.setSubject(e.getSubject());
+		message.setTo(e.getToEmail());
+		message.setFrom(e.getFromEmail());
+		message.setText(e.getMessage());
+		message.setSubject(e.getSubject());
 		
-		message.setTo(e.getEmailid());
-		message.setFrom(e.getFromemailid());
-		message.setSubject(e.getQuery());
-		message.setText(e.getPhonenumber());
-		message.setText(e.getFullname());
-				
 		sender.send(message);
 	}
 
@@ -42,10 +43,10 @@ public class EmailSenderServiceImpl implements EmailSenderServiceI{
 		
 		   try{
 			MimeMessageHelper helper = new MimeMessageHelper(message, true);
-//			helper.setTo(e.getToEmail());
-//			helper.setFrom(e.getFromEmail());
-//			helper.setText(e.getMessage());
-//			helper.setSubject(e.getSubject());
+			helper.setTo(e.getToEmail());
+			helper.setFrom(e.getFromEmail());
+			helper.setText(e.getMessage());
+			helper.setSubject(e.getSubject());
 			
 			FileSystemResource resource=new FileSystemResource("D:\\FileUploadinspringbootrestapi.pdf");
 			
@@ -58,4 +59,50 @@ public class EmailSenderServiceImpl implements EmailSenderServiceI{
 		     }
 		
 	}
+
+	@Override
+	public void sendSanctionMail(EmailSender em) throws Exception 
+	{
+		
+			MimeMessage message=sender.createMimeMessage();
+			MimeMessageHelper helper;
+			try {
+				helper = new MimeMessageHelper(message,true);
+				helper.setTo(em.getToEmail());
+				helper.setText(em.getMessage()+"\nPlease visit our office for any Query or contact us at www.sfc.com\nThank You !\n\nRegards,\nSFC family.");
+				helper.setSubject("Loan Sanction Letter");
+			} catch (MessagingException e) {
+				
+				e.printStackTrace();
+			}
+			
+			sender.send(message);
+			System.out.println("mail sent for sanction letter....");
+			
+		}
+		
+	
+
+	
+
+	@Override
+	public void sendRejectionMail(EmailSender em) 
+	{
+
+		MimeMessage message=sender.createMimeMessage();
+		MimeMessageHelper helper;
+		try {
+			helper = new MimeMessageHelper(message,true);
+			helper.setTo(em.getToEmail());
+			helper.setText(em.getMessage()+"\nThank you for approching us.\nYou can reapply for the loan after meeting the set conditions\n\nRegards,\nSFC family.");
+			helper.setSubject("Loan Rejection Letter");
+		} catch (MessagingException e) {
+			
+			e.printStackTrace();
+		}
+		
+		sender.send(message);
+		System.out.println("mail sent for Loan rejection....");
+	}
+	
 }

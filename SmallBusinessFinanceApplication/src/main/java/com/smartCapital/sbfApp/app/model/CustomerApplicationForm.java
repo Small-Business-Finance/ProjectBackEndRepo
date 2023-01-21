@@ -40,7 +40,10 @@ public class CustomerApplicationForm {
 	@OneToOne(cascade = CascadeType.ALL)
 	private CustomerLoanDetails customerLoanDetails;
 	
+	
 	@OneToOne(cascade = CascadeType.ALL)
 	private CustomerDocuments customerDocuments;
+	
+	
 		
 }

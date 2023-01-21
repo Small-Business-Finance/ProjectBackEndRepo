@@ -57,13 +57,13 @@ public class EnquiryController {
 //	}
 
 	
-	/*
-	 * @PostMapping(value = "/cibilscore") public ResponseEntity<String>
-	 * saveCibilScore(@RequestBody CibilScore cibilscore) {
-	 * smartcapitalenquiryservice.saveCibilScore(cibilscore); String
-	 * s="Resource created successfully"; return new
-	 * ResponseEntity<>(s,HttpStatus.CREATED); }
-	 */
+	
+//	 @PostMapping(value = "/cibilscore") public ResponseEntity<String>
+//	 saveCibilScore(@RequestBody CibilScore cibilscore) {
+//	 smartcapitalenquiryservice.saveCibilScore(cibilscore); String
+//	  s="Resource created successfully"; return new
+//	  ResponseEntity<>(s,HttpStatus.CREATED); }
+	
 
 	
 	
@@ -78,13 +78,13 @@ public class EnquiryController {
 //	}
 	
 	
-	/*
-	 * @PutMapping(value = "/cibilscore/{cibilId}") public ResponseEntity<String>
-	 * updateCibil(@RequestBody CibilScore cibilscore,@PathVariable("cibilId")
-	 * Integer id) { smartcapitalenquiryservice.updateCibilScore(id,cibilscore);
-	 * String s="Resource updated successfully"; return new
-	 * ResponseEntity<>(s,HttpStatus.OK); }
-	 */
+	
+	  @PutMapping(value = "/cibilscore/{cibilId}") public ResponseEntity<String>
+	  updateCibil(@RequestBody CibilScore cibilscore,@PathVariable("cibilId")
+	  Integer id) { smartcapitalenquiryservice.updateCibilScore(id,cibilscore);
+	  String s="Resource updated successfully"; return new
+	  ResponseEntity<>(s,HttpStatus.OK); }
+	 
 	@DeleteMapping(value = "/enquiry/{enquiryId}")
 	public ResponseEntity<String> deleteEnquiry(@PathVariable("enquiryId") Integer id)
 	{
@@ -111,21 +111,35 @@ public class EnquiryController {
 //	}
 	
 	
-	/*
-	 * @GetMapping(value = "/cibilscores") public
-	 * ResponseEntity<Iterable<CibilScore>> getCibl() { Iterable<CibilScore>
-	 * list=smartcapitalenquiryservice.getCibil(); return new
-	 * ResponseEntity<Iterable<CibilScore>>(list,HttpStatus.OK); }
-	 */
-	@GetMapping("/cibil/getscore")
-	public ResponseEntity<Double>getCIBILScore()
+	
+	@GetMapping(value = "/cibilscores") public
+	 ResponseEntity<Iterable<CibilScore>> getCibl() { Iterable<CibilScore>
+	  list=smartcapitalenquiryservice.getCibil(); return new
+	  ResponseEntity<Iterable<CibilScore>>(list,HttpStatus.OK); }
+	 
+	@GetMapping("/cibil/getscore/{id}")
+	public ResponseEntity<Integer>getCIBILScore(@PathVariable("id") Integer id)
 	{
 		int min=600;
 		int max=900;
-		double a= Math.random()*(max-min+1)+min;
-		
-		
-		return new ResponseEntity<Double>(a,HttpStatus.OK);
+		int a= (int) (Math.random()*(max-min+1)+min);
+		Enquiry xx=smartcapitalenquiryservice.getEnquirybyID(id);
+		CibilScore cbl=new CibilScore() ;
+		cbl.setCibilScore(a);
+		if(a>800)
+		cbl.setCibilRemark("Excellent");
+		else if(a<=800 && a>=761)
+		cbl.setCibilRemark("Good");
+		else if(a<761 && a>=701)
+		cbl.setCibilRemark("Fair");
+		else if(a<=700 && a>650)
+		cbl.setCibilRemark("Low");
+		else
+		cbl.setCibilRemark("Bad");
+		xx.setCibilscore(cbl);
+		xx.setEnquiryStatus("Cibil Generated");
+		smartcapitalenquiryservice.updateEnquiry(id, xx);
+		return new ResponseEntity<Integer>(a,HttpStatus.OK);
 
 	}
 }
