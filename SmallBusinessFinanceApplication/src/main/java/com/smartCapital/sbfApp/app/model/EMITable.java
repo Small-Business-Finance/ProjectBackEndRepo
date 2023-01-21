@@ -24,7 +24,7 @@ public class EMITable{
 			private Integer emiTenure;
 			private Double emiPaid;
 			private LocalDate emidate;
-			private Integer defaultorCount;
+			
 			
 		}
 		 
