@@ -1,5 +1,7 @@
 package com.smartCapital.sbfApp.app.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -61,9 +63,9 @@ public class LeaveDetailController {
 	}
 	
 	@GetMapping(value = "/getbyId/{leaveAppId}")
-	public LeaveDetails getLeaveDetailbyId(@PathVariable("leaveAppId") Integer leaveAppId)
+	public List<LeaveDetails> getLeaveDetailbyId(@PathVariable("leaveAppId") Integer leaveAppId)
 	{
-		LeaveDetails leavedetails=leavedetailservice.getLeaveDetailbyId(leaveAppId);
+		List<LeaveDetails> leavedetails=leavedetailservice.getLeaveDetailbyId(leaveAppId);
 		return leavedetails;
 	}
 }
