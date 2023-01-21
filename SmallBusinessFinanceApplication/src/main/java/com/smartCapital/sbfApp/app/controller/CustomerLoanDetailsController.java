@@ -24,8 +24,6 @@ public class CustomerLoanDetailsController {
 	@Autowired
 	CustomerLoanDetailsServiceI cs;
 	
-//	@Autowired
-//	CustomerApplicationFormServiceI caf;
 	
 	@PutMapping(value = "/application/{applicationId}")
 	public ResponseEntity<String> updateLoanDetails(@RequestBody CustomerLoanDetails ld,@PathVariable Integer applicationId)

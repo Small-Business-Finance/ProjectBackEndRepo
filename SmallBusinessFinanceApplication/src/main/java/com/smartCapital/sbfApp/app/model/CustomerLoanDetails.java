@@ -26,6 +26,7 @@ public class CustomerLoanDetails {
 	private Double emiAmount;
 	private String loanStatus;
 	private String loanDisbursedStatus;
+	private Integer defaultorCount;
 	@OneToOne(cascade = CascadeType.ALL)
 	private EMITable emitable;
 	
