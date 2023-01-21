@@ -23,7 +23,6 @@ public class CustomerLoanDetails {
 	private Double expectedLoanAmount;
 	private Double expectedLoanTenure;
 	private Double rateOfInterest;
-	private Double emiAmount;
 	private String loanStatus;
 	private String loanDisbursedStatus;
 	private Integer defaultorCount;

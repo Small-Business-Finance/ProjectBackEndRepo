@@ -111,7 +111,6 @@ public class CustomerApplicationFormController {
 		cld.setExpectedLoanAmount(cmf.getCustomerLoanDetails().getExpectedLoanAmount());
 		cld.setExpectedLoanTenure(cmf.getCustomerLoanDetails().getExpectedLoanTenure());
 		cld.setRateOfInterest(cmf.getCustomerLoanDetails().getRateOfInterest());
-		cld.setEmiAmount(cmf.getCustomerLoanDetails().getEmiAmount());
 		cld.setLoanStatus(cmf.getCustomerLoanDetails().getLoanStatus());
 		cld.setLoanDisbursedStatus(cmf.getCustomerLoanDetails().getLoanDisbursedStatus());
 		cld.setDefaultorCount(cmf.getCustomerLoanDetails().getDefaultorCount());
@@ -119,7 +118,7 @@ public class CustomerApplicationFormController {
 		EMITable et=new EMITable();
 		et.setEmiStatus(cmf.getCustomerLoanDetails().getEmitable().getEmiStatus());
 		et.setEmiTenure(cmf.getCustomerLoanDetails().getEmitable().getEmiTenure());
-		et.setEmiPaid(cmf.getCustomerLoanDetails().getEmitable().getEmiPaid());
+		et.setEmiAmount(cmf.getCustomerLoanDetails().getEmitable().getEmiAmount());
 		et.setEmidate(cmf.getCustomerLoanDetails().getEmitable().getEmidate());
 		cld.setEmitable(et);		
 		cf.setCustomerLoanDetails(cld);
