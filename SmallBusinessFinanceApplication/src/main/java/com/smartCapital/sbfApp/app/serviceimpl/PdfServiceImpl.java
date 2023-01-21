@@ -84,6 +84,7 @@ public class PdfServiceImpl implements PdfServiceI
 		Paragraph p2 = new Paragraph("Amount-"+cf.getCustomerLoanDetails().getExpectedLoanAmount(), font1);
 		p.setAlignment(Paragraph.ALIGN_CENTER);
 		document.add(p2);
+		document.close();
 		
 		
 	}
