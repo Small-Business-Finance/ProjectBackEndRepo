@@ -59,14 +59,14 @@ public class EmailSenderController {
 		
 			esi.sendEmailWithAttachment(e);
 		} catch (Exception e1) {
-			// TODO Auto-generated catch block
+		
 			return "Email not Sent!!!";
 		}
 		return "Email Sent!!";
 	}
 	
 	
-	@PostMapping(value = "/mail")
+	@PostMapping(value = "/sanction")
 	public void sendSanctionMail(@RequestBody SanctionLetter sl) throws Exception
 	{
 		EmailSender em=new EmailSender();
@@ -78,5 +78,19 @@ public class EmailSenderController {
 		
 		esi.sendSanctionMail(em);
 	}
+	
+	@PostMapping(value = "/rejection")
+	public void sendRejectionMail(@RequestBody CustomerApplicationForm cf) throws Exception
+	{
+		EmailSender em=new EmailSender();
+		em.setFromEmail(fromEmail);
+		em.setToEmail(cf.getCustomerDetails().getEmailId());
+		em.setSubject("Loan Rejection Letter");
+		em.setMessage("Dear "+cf.getCustomerDetails().getCustomerName()+"\n\n"+"After going through your application,We are sorry to inform you that,"+"\n"+"your business loan application for the amount "+cf.getCustomerLoanDetails().getExpectedLoanAmount()+
+				" has been rejected");
+		
+		esi.sendRejectionMail(em);
+	}
+	
 	
 }
