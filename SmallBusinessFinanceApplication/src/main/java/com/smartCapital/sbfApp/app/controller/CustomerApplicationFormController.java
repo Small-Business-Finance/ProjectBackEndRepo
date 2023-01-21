@@ -22,6 +22,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.smartCapital.sbfApp.app.model.CustomerDocuments;
 import com.smartCapital.sbfApp.app.model.CustomerLoanDetails;
+import com.smartCapital.sbfApp.app.model.EMITable;
 import com.smartCapital.sbfApp.app.model.GuarantorDetails;
 import com.smartCapital.sbfApp.app.model.PreviousLoanDetails;
 import com.smartCapital.sbfApp.app.model.SanctionLetter;
@@ -113,6 +114,14 @@ public class CustomerApplicationFormController {
 		cld.setEmiAmount(cmf.getCustomerLoanDetails().getEmiAmount());
 		cld.setLoanStatus(cmf.getCustomerLoanDetails().getLoanStatus());
 		cld.setLoanDisbursedStatus(cmf.getCustomerLoanDetails().getLoanDisbursedStatus());
+		
+		EMITable et=new EMITable();
+		et.setEmiStatus(cmf.getCustomerLoanDetails().getEmitable().getEmiStatus());
+		et.setEmiTenure(cmf.getCustomerLoanDetails().getEmitable().getEmiTenure());
+		et.setEmiPaid(cmf.getCustomerLoanDetails().getEmitable().getEmiPaid());
+		et.setEmidate(cmf.getCustomerLoanDetails().getEmitable().getEmidate());
+		et.setDefaultorCount(cmf.getCustomerLoanDetails().getEmitable().getDefaultorCount());
+		cld.setEmitable(et);		
 		cf.setCustomerLoanDetails(cld);
 		
 		
@@ -169,6 +178,4 @@ public class CustomerApplicationFormController {
 		String s="record deleted";
 		return new ResponseEntity<String>(s,HttpStatus.NO_CONTENT);
 	}
-	
-	
 }

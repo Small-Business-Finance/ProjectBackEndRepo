@@ -19,13 +19,15 @@ public class CustomerLoanDetails {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer loanId;
+	private Integer loanId;	
 	private Double expectedLoanAmount;
 	private Double expectedLoanTenure;
 	private Double rateOfInterest;
 	private Double emiAmount;
 	private String loanStatus;
 	private String loanDisbursedStatus;
+	@OneToOne(cascade = CascadeType.ALL)
+	private EMITable emitable;
 	
 	 
 
