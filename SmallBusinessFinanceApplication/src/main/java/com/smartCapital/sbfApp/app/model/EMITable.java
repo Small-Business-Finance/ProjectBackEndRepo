@@ -22,7 +22,7 @@ public class EMITable{
 			private Integer emiDetailsId;
 			private String emiStatus;
 			private Integer emiTenure;
-			private Double emiPaid;
+			private Double emiAmount;
 			private LocalDate emidate;
 			
 			
