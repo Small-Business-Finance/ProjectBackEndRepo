@@ -1,5 +1,7 @@
 package com.smartCapital.sbfApp.app.serviceimpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,9 +47,10 @@ public class LeaveDetailsServiceImpl implements LeaveDetailService{
 	}
 
 	@Override
-	public LeaveDetails getLeaveDetailbyId(Integer leaveAppId) {
+	public List<LeaveDetails> getLeaveDetailbyId(Integer leaveAppId) {
+		return leavedetailrepository.findByEmpId(leaveAppId);
 		
-		return leavedetailrepository.findByLeaveAppId(leaveAppId) ;
+		//return leavedetailrepository.findByLeaveAppId(leaveAppId);
 	}
 
 }
