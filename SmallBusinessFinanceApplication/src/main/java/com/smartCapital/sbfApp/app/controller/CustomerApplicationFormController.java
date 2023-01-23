@@ -1,7 +1,11 @@
 package com.smartCapital.sbfApp.app.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.EntityManager;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -17,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import org.yaml.snakeyaml.emitter.Emitable;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -115,11 +121,7 @@ public class CustomerApplicationFormController {
 		cld.setLoanDisbursedStatus(cmf.getCustomerLoanDetails().getLoanDisbursedStatus());
 		cld.setDefaultorCount(cmf.getCustomerLoanDetails().getDefaultorCount());
 		
-		EMITable et=new EMITable();
-		et.setEmiStatus(cmf.getCustomerLoanDetails().getEmitable().getEmiStatus());
-		et.setEmiTenure(cmf.getCustomerLoanDetails().getEmitable().getEmiTenure());
-		et.setEmiAmount(cmf.getCustomerLoanDetails().getEmitable().getEmiAmount());
-		et.setEmidate(cmf.getCustomerLoanDetails().getEmitable().getEmidate());
+		List<EMITable> et=cmf.getCustomerLoanDetails().getEmitable();
 		cld.setEmitable(et);		
 		cf.setCustomerLoanDetails(cld);
 		

@@ -18,7 +18,7 @@ import com.smartCapital.sbfApp.app.service.CustomerLoanDetailsServiceI;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping(value="/loanapi")
+@RequestMapping(value="/loanapi123")
 public class CustomerLoanDetailsController {
 
 	@Autowired
@@ -26,10 +26,13 @@ public class CustomerLoanDetailsController {
 	
 	
 	@PutMapping(value = "/application/{applicationId}")
-	public ResponseEntity<String> updateLoanDetails(@RequestBody CustomerLoanDetails ld,@PathVariable Integer applicationId)
+	public ResponseEntity<String> updateLoanDetails(@PathVariable Integer applicationId,Integer id)
 	{
-		cs.updateLoanDetails(ld,applicationId);
+		
+		cs.updateLoanDetails(applicationId);
 		String s="updated";
+		System.out.println("Heelllooooooooo");
 		return new ResponseEntity<String>(s,HttpStatus.OK);
 	}
+	
 }
