@@ -1,5 +1,7 @@
 package com.smartCapital.sbfApp.app.model;
 
+import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,16 +15,15 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class EMITable{ 
 @Id
 @GeneratedValue(strategy=GenerationType.AUTO)
 			private Integer emiDetailsId;
 			private String emiStatus;
-			private Double emiAmount;
 			private Integer emiTenure;
-			private Double emiPaid;
-			private Integer defaultorCount;
+			private Double emiAmount;
+			private LocalDate emidate;
+			
 			
 		}
 		 
