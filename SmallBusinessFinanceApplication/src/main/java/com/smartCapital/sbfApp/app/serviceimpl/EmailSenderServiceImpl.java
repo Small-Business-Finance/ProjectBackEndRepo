@@ -95,7 +95,7 @@ public class EmailSenderServiceImpl implements EmailSenderServiceI{
 //				helper.addAttachment(resource.getFilename(), resource);
 				
 				sender.send(message);
-				System.out.println("mail sent--------....");
+				System.out.println(" sanction mail sent--------....");
 			
 			
 			}
@@ -106,7 +106,7 @@ public class EmailSenderServiceImpl implements EmailSenderServiceI{
 		 }
 	
 	@Override
-	public void sendMail(EmailSender em, Map<String, Object> model, Template t) {
+	public void sendMultipleMail(EmailSender em, Map<String, Object> model, Template t) {
 		MimeMessage message=sender.createMimeMessage();
 		
 		try {
@@ -134,6 +134,41 @@ public class EmailSenderServiceImpl implements EmailSenderServiceI{
 			e.printStackTrace();
 		}
 	 
+	}
+
+	
+
+	@Override
+	public void sendCibilMail(EmailSender em, Map<String, Object> model, Template t) {
+
+		MimeMessage message=sender.createMimeMessage();
+	
+		
+			try {
+				MimeMessageHelper helper=new MimeMessageHelper(message,MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED,
+						StandardCharsets.UTF_8.name());
+ 
+				
+				String html = FreeMarkerTemplateUtils.processTemplateIntoString(t, model);
+				
+				helper = new MimeMessageHelper(message,true);
+				helper.setTo(em.getToEmail());
+				helper.setText(html,true);
+				helper.setSubject(em.getSubject());
+//				FileSystemResource resource=new FileSystemResource("C:\\Users\\Payal\\Downloads\\WhatsApp Image 2023-01-22 at 10.21.04 AM.jpeg");
+//				
+//				helper.addAttachment(resource.getFilename(), resource);
+				
+				sender.send(message);
+				System.out.println("low cibil mail sent--------....");
+			
+			
+			}
+			catch (MessagingException | IOException | TemplateException e) {
+			
+				e.printStackTrace();
+			}
+		
 	}
 	
 }

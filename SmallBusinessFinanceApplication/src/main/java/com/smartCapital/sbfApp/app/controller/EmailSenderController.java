@@ -22,6 +22,7 @@ import com.smartCapital.sbfApp.app.model.CustomerApplicationForm;
 import com.smartCapital.sbfApp.app.model.CustomerDetails;
 import com.smartCapital.sbfApp.app.model.CustomerLoanDetails;
 import com.smartCapital.sbfApp.app.model.EmailSender;
+import com.smartCapital.sbfApp.app.model.Enquiry;
 import com.smartCapital.sbfApp.app.model.MailResponse;
 import com.smartCapital.sbfApp.app.model.SanctionLetter;
 import com.smartCapital.sbfApp.app.service.EmailSenderServiceI;
@@ -96,7 +97,7 @@ public class EmailSenderController {
 	}
 
 	@PostMapping(value = "/mail")
-	public void sendMail(@RequestBody CustomerApplicationForm cf) throws Exception {
+	public void sendMultipleMail(@RequestBody CustomerApplicationForm cf) throws Exception {
 		EmailSender em = new EmailSender();
 		em.setFromEmail(fromEmail);
 		em.setToEmail(cf.getCustomerDetails().getEmailId());
@@ -106,13 +107,14 @@ public class EmailSenderController {
 			
 		if(cf.getApplicationStatus().equals("Rejected"))
 		{
+			System.out.println(cf.getApplicationStatus());
 			System.out.println(cf.getApplicationId());
 			System.out.println(cf.getCustomerDetails().getEmailId());
 			em.setSubject("Loan Rejection Letter");
 			t=config.getTemplate("emailrejection.ftl");
 		}
 		
-		if(cf.getApplicationStatus().equals("Disbursed"))
+		if(cf.getApplicationStatus().equals("Sanctioned"))
 		{
 			System.out.println(cf.getApplicationId());
 			System.out.println(cf.getCustomerDetails().getEmailId());
@@ -132,12 +134,32 @@ public class EmailSenderController {
 		mode.put("name", cf.getCustomerDetails().getCustomerName());
 		//mode.put("amount",sl.getExpectedLoanAmount());
 		
-		esi.sendMail(em,mode,t);
+		esi.sendMultipleMail(em,mode,t);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@PostMapping(value = "/lowcibil")
+	public void sendCibilMail(@RequestBody Enquiry eq) throws Exception {
+		EmailSender em = new EmailSender();
+		em.setFromEmail(fromEmail);
+		try {
+				Template t=null;
+				em.setToEmail(eq.getEmailId());
+				System.out.println(eq.getEmailId());
+				System.out.println(eq.getCibilscore().getCibilRemark());
+				em.setSubject("Loan Application Rejection Due to Low Cibil");
+				t=config.getTemplate("emaillowcibil.ftl");
+			
+		Map<String, Object> mode = new HashMap<>();
+		mode.put("name",eq.getCustomerName());
+		//mode.put("amount",sl.getExpectedLoanAmount());
+		esi.sendCibilMail(em, mode,t);
+		
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		
-	}
-
+}
 }

@@ -17,7 +17,9 @@ public interface EmailSenderServiceI {
 
 	public void sendSanctionMail(EmailSender em,Map<String, Object> model,Template t) throws Exception;
 
-	public void sendMail(EmailSender em, Map<String, Object> mode, Template t);
+	public void sendMultipleMail(EmailSender em, Map<String, Object> mode, Template t);
+
+	public void sendCibilMail(EmailSender em, Map<String, Object> mode, Template t);
 
 	
 }
