@@ -1,10 +1,14 @@
 package com.smartCapital.sbfApp.app.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
@@ -26,8 +30,8 @@ public class CustomerLoanDetails {
 	private String loanStatus;
 	private String loanDisbursedStatus;
 	private Integer defaultorCount;
-	@OneToOne(cascade = CascadeType.ALL)
-	private EMITable emitable;
+	@OneToMany(cascade = CascadeType.MERGE)
+	private List<EMITable> emitable=new ArrayList<EMITable>();
 	
 	 
 

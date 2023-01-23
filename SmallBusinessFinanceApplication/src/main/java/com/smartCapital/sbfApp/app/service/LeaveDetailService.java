@@ -1,6 +1,8 @@
 package com.smartCapital.sbfApp.app.service;
 
 
+import java.util.List;
+
 import com.smartCapital.sbfApp.app.model.LeaveDetails;
 
 public interface LeaveDetailService {
@@ -13,6 +15,6 @@ public interface LeaveDetailService {
 
 	void deleteLeaveDetail(Integer leaveAppId);
 
-	LeaveDetails getLeaveDetailbyId(Integer leaveAppId);
+	List<LeaveDetails> getLeaveDetailbyId(Integer leaveAppId);
 
 }
