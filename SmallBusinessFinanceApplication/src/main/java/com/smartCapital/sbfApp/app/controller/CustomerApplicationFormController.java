@@ -1,7 +1,11 @@
 package com.smartCapital.sbfApp.app.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.EntityManager;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -17,11 +21,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import org.yaml.snakeyaml.emitter.Emitable;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.smartCapital.sbfApp.app.model.CustomerDocuments;
 import com.smartCapital.sbfApp.app.model.CustomerLoanDetails;
+import com.smartCapital.sbfApp.app.model.EMITable;
 import com.smartCapital.sbfApp.app.model.GuarantorDetails;
 import com.smartCapital.sbfApp.app.model.PreviousLoanDetails;
 import com.smartCapital.sbfApp.app.model.SanctionLetter;
@@ -110,9 +117,12 @@ public class CustomerApplicationFormController {
 		cld.setExpectedLoanAmount(cmf.getCustomerLoanDetails().getExpectedLoanAmount());
 		cld.setExpectedLoanTenure(cmf.getCustomerLoanDetails().getExpectedLoanTenure());
 		cld.setRateOfInterest(cmf.getCustomerLoanDetails().getRateOfInterest());
-		cld.setEmiAmount(cmf.getCustomerLoanDetails().getEmiAmount());
 		cld.setLoanStatus(cmf.getCustomerLoanDetails().getLoanStatus());
 		cld.setLoanDisbursedStatus(cmf.getCustomerLoanDetails().getLoanDisbursedStatus());
+		cld.setDefaultorCount(cmf.getCustomerLoanDetails().getDefaultorCount());
+		
+		List<EMITable> et=cmf.getCustomerLoanDetails().getEmitable();
+		cld.setEmitable(et);		
 		cf.setCustomerLoanDetails(cld);
 		
 		
@@ -169,6 +179,4 @@ public class CustomerApplicationFormController {
 		String s="record deleted";
 		return new ResponseEntity<String>(s,HttpStatus.NO_CONTENT);
 	}
-	
-	
 }
