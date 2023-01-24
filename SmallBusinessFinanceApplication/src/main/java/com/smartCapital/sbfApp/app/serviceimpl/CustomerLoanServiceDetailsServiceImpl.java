@@ -14,6 +14,7 @@ import com.smartCapital.sbfApp.app.model.CustomerLoanDetails;
 import com.smartCapital.sbfApp.app.model.EMITable;
 import com.smartCapital.sbfApp.app.repository.CustomerApplicationFormRepository;
 import com.smartCapital.sbfApp.app.repository.CustomerLoanDetailsRepository;
+import com.smartCapital.sbfApp.app.repository.EMITableRepository;
 import com.smartCapital.sbfApp.app.service.CustomerLoanDetailsServiceI;
 
 @Service
@@ -24,6 +25,9 @@ public class CustomerLoanServiceDetailsServiceImpl implements CustomerLoanDetail
 	
 	@Autowired
 	CustomerApplicationFormRepository cr;
+	
+	@Autowired
+	EMITableRepository er;
 	
 	@Override
 	public void updateLoanDetails(Integer applicationId) {
@@ -60,6 +64,27 @@ public class CustomerLoanServiceDetailsServiceImpl implements CustomerLoanDetail
 	public List<CustomerApplicationForm> getDefaulter() {
 		
 return cr.findByCustomerLoanDetails_DefaultorCountGreaterThan(0);
+	}
+
+	@Override
+	public String updateemi(EMITable et) {
+		
+//		List<EMITable> ts=er.findAllByEmiDetailsId(et.getEmiDetailsId());
+		
+		CustomerLoanDetails cd=csr.findByEmitable_EmiDetailsId(et.getEmiDetailsId());
+//		cd.setDefaultorCount(0);
+		int num=cd.getDefaultorCount();
+		System.out.println("EMI Status: "+et.getEmiStatus());
+		System.out.println("Initial Count: "+cd.getDefaultorCount());
+		if(et.getEmiStatus().equals("Unpaid"))
+		{
+			num=num+1;
+		}
+		cd.setDefaultorCount(num);
+		csr.save(cd);
+		System.out.println("Final Count: "+cd.getDefaultorCount());
+		er.save(et);
+		return "EMI Updated!!!";
 	}
 
 }
