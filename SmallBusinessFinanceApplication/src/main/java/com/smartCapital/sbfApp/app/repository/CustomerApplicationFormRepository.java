@@ -8,12 +8,14 @@ import org.springframework.stereotype.Repository;
 
 import com.smartCapital.sbfApp.app.model.CustomerApplicationForm;
 import com.smartCapital.sbfApp.app.model.CustomerLoanDetails;
+import com.smartCapital.sbfApp.app.model.EMITable;
 
 @Repository
 public interface CustomerApplicationFormRepository extends JpaRepository<CustomerApplicationForm, Integer>
 {
 	public CustomerApplicationForm findByApplicationId(Integer applicationId);
-	
-	public List<CustomerApplicationForm> findByCustomerLoanDetails_DefaultorCountGreaterThan(int defaultCount);
+
+	public List<CustomerApplicationForm> findByCustomerLoanDetails_DefaultorCountGreaterThan(int i);
+
 	
 }

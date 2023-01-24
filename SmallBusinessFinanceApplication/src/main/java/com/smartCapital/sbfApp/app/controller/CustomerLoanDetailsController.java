@@ -28,6 +28,23 @@ public class CustomerLoanDetailsController {
 	CustomerLoanDetailsServiceI cs;
 	
 	
+//	@PutMapping(value = "/application/{applicationId}")
+//	public ResponseEntity<String> updateLoanDetails(@PathVariable Integer applicationId,Integer id)
+//	{
+//		
+//		cs.updateLoanDetails(applicationId);
+//		String s="updated";
+//		System.out.println("Heelllooooooooo");
+//		return new ResponseEntity<String>(s,HttpStatus.OK);
+//	}
+	
+//	@GetMapping	(value = "/getbyloandetailsId/{applicationId}")
+//	public List<CustomerLoanDetails> getLoanDetailbyId(@PathVariable("applicationId") Integer applicationId)
+//	{
+//		List<CustomerLoanDetails> loandetails=cs.getLoanDetailbyId(applicationId);
+//		return loandetails;
+//	}
+	
 	@PutMapping(value = "/application/{applicationId}")
 	public ResponseEntity<String> updateLoanDetails(@PathVariable Integer applicationId,Integer id)
 	{

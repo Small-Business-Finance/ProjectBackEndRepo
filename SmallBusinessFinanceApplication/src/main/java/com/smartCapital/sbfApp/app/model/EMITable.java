@@ -23,8 +23,7 @@ public class EMITable{
 			private Integer emiTenure;
 			private Double emiAmount;
 			private LocalDate emidate;
-			
-			
+						
 		}
 		 
 

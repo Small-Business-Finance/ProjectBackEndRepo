@@ -10,4 +10,5 @@ public interface PdfServiceI {
 
 	void generatePdf(HttpServletResponse response, Integer applicationId) throws DocumentException, IOException;
 
+	void generateExcel(HttpServletResponse response, Integer applicationId)throws DocumentException, IOException;
 }
