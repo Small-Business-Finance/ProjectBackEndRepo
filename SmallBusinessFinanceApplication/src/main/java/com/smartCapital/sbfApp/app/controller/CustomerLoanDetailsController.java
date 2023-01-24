@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.smartCapital.sbfApp.app.model.CustomerApplicationForm;
 import com.smartCapital.sbfApp.app.model.CustomerLoanDetails;
+import com.smartCapital.sbfApp.app.model.EMITable;
 import com.smartCapital.sbfApp.app.service.CustomerApplicationFormServiceI;
 import com.smartCapital.sbfApp.app.service.CustomerLoanDetailsServiceI;
 
@@ -58,5 +59,14 @@ public class CustomerLoanDetailsController {
 	public List<CustomerApplicationForm> defaulter(){
 		return cs.getDefaulter();
 	}
+	
+	@PutMapping(value="/updateemi")
+	public String updateemi(@RequestBody EMITable et)
+	{
+		
+		return cs.updateemi(et);
+		
+	}
+	
 
 }
