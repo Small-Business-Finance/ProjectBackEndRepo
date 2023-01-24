@@ -128,14 +128,13 @@ public class EnquiryController {
 		cbl.setCibilScore(a);
 		if(a>800)
 		cbl.setCibilRemark("Excellent");
-		else if(a<=800 && a>=761)
+		else if(a<=800 && a>=700)
 		cbl.setCibilRemark("Good");
-		else if(a<761 && a>=701)
+		else if(a<700 && a>=650)
 		cbl.setCibilRemark("Fair");
-		else if(a<=700 && a>650)
-		cbl.setCibilRemark("Low");
 		else
-		cbl.setCibilRemark("Bad");
+		cbl.setCibilRemark("Low");
+	
 		xx.setCibilscore(cbl);
 		xx.setEnquiryStatus("Cibil Generated");
 		smartcapitalenquiryservice.updateEnquiry(id, xx);
