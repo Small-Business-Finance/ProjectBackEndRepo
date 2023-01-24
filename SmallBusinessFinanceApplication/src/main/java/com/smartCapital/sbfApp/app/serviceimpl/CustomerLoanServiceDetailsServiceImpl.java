@@ -35,7 +35,7 @@ public class CustomerLoanServiceDetailsServiceImpl implements CustomerLoanDetail
 		CustomerLoanDetails ld=ca.getCustomerLoanDetails();
 		double p=ld.getExpectedLoanAmount();
 		double n=ld.getExpectedLoanTenure();
-		double r=ld.getRateOfInterest()/12*100;
+		double r=ld.getRateOfInterest()/(12*100);
 		double emi=p * r * (Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
 		System.out.println(emi);
 		LocalDate date=LocalDate.now();
