@@ -58,5 +58,5 @@ public class CustomerLoanDetailsController {
 	public List<CustomerApplicationForm> defaulter(){
 		return cs.getDefaulter();
 	}
-	
+
 }
