@@ -53,6 +53,7 @@ public class CustomerLoanServiceDetailsServiceImpl implements CustomerLoanDetail
 		ca.setApplicationStatus("Disbursed");
   		cr.save(ca);
 		}
+
 	}
 
 	@Override
@@ -60,7 +61,5 @@ public class CustomerLoanServiceDetailsServiceImpl implements CustomerLoanDetail
 		
 return cr.findByCustomerLoanDetails_DefaultorCountGreaterThan(0);
 	}
-	
-	
 
 }
