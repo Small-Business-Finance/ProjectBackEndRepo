@@ -122,7 +122,7 @@ public class EmailSenderController {
 			t=config.getTemplate("emaildisbursement.ftl");
 		}
 		
-		if(cf.getApplicationStatus().equals("notice"))
+		//if()
 		{
 			System.out.println(cf.getApplicationId());
 			System.out.println(cf.getCustomerDetails().getEmailId());
