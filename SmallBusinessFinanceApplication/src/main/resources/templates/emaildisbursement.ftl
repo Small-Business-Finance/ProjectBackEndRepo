@@ -2,7 +2,7 @@
 <head>
 </head>
 <body>
-<h2>Loan Disbursement</h2>
+<h2>Loan Disbursement Letter</h2>
 
 Dear ${name} ,<br><pre></pre>
 

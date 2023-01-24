@@ -2,7 +2,7 @@
 <head>
 </head>
 <body>
-<h2>Loan Sanction</h2>
+<h2>Loan Notice</h2>
 
 Dear ${name} ,<br><pre></pre>
 

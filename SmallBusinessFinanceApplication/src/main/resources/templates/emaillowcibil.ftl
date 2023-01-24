@@ -2,7 +2,7 @@
 <head>
 </head>
 <body>
-<h2>Loan Application Rejection</h2>
+<h2>Loan Application Rejection Due to Low Cibil</h2>
 
 Dear ${name}, <br><pre></pre>
 
