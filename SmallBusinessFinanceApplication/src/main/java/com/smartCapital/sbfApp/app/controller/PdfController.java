@@ -34,4 +34,15 @@ public class PdfController {
 		response.setHeader(hk, val);
 		psi.generatePdf(response, applicationId);		
 	}	
+
+	@GetMapping("/genExcel/{applicationId}")
+	public void getExcel(HttpServletResponse response,@PathVariable Integer applicationId)throws Exception {
+		response.setContentType("application/excel");
+//		CustomerApplicationForm cf= csi.getApplicationById(applicationId);
+//		String name=cf.getCustomerDetails().getCustomerName();
+		String hk="Content-Disposition";
+		String val="attachment;filename= abc.xlsx";
+		response.setHeader(hk, val);
+		psi.generateExcel(response, applicationId);		
+	}
 }

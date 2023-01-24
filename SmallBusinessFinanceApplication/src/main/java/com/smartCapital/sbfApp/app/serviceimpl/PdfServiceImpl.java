@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import com.smartCapital.sbfApp.app.model.CustomerApplicationForm;
 import com.smartCapital.sbfApp.app.model.CustomerDetails;
+import com.smartCapital.sbfApp.app.model.EMITable;
 import com.smartCapital.sbfApp.app.repository.CustomerApplicationFormRepository;
 import com.smartCapital.sbfApp.app.service.PdfServiceI;
 import java.awt.Color;
@@ -87,6 +88,67 @@ public class PdfServiceImpl implements PdfServiceI
 		document.close();
 		
 		
+	}
+	
+	@Override
+	public void generateExcel(HttpServletResponse response, Integer applicationId)
+			throws DocumentException, IOException {
+		Iterable<CustomerApplicationForm> all = (Iterable<CustomerApplicationForm>) cr.findByApplicationId(applicationId);
+
+		HSSFWorkbook workbook = new HSSFWorkbook();
+		HSSFSheet sheet = workbook.createSheet();
+		HSSFRow row = sheet.createRow(0);
+
+		 HSSFFont headerFont = workbook.createFont();
+		  headerFont.setColor(IndexedColors.WHITE.index);
+		  CellStyle headerCellStyle = sheet.getWorkbook().createCellStyle();
+		  headerCellStyle.setDataFormat(workbook.createDataFormat().getFormat("#.##"));
+		  // fill foreground color ...
+		  headerCellStyle.setFillForegroundColor(IndexedColors.LIGHT_BLUE.index);
+		  // and solid fill pattern produces solid grey cell fill
+		  headerCellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+		  headerCellStyle.setFont(headerFont);
+		 
+		
+		HSSFCell cell1 = row.createCell(0);
+		cell1.setCellValue("emiDetailsId");
+		cell1.setCellStyle(headerCellStyle);
+		
+		HSSFCell cell2 = row.createCell(1);
+		cell2.setCellValue("emidate");
+		cell2.setCellStyle(headerCellStyle);
+		
+		HSSFCell cell3 = row.createCell(2);
+		cell3.setCellValue("emiAmount");
+		cell3.setCellStyle(headerCellStyle);
+		
+		HSSFCell cell4 = row.createCell(3);
+		cell4.setCellValue("emiTenure");
+		cell4.setCellStyle(headerCellStyle);
+		
+		HSSFCell cell5 = row.createCell(4);
+		cell5.setCellValue("emiStatus");
+		cell5.setCellStyle(headerCellStyle);
+		
+		
+
+		int i = 1;
+		for (CustomerApplicationForm al : all) {
+
+			HSSFRow data = sheet.createRow(i);
+			data.createCell(0).setCellValue(String.valueOf(i));
+//			data.createCell(1).setCellValue("" + al.getEmidate() + "");
+//			data.createCell(2).setCellValue(al.getEmiAmount());
+//			data.createCell(3).setCellValue(al.getEmiTenure());
+//			data.createCell(4).setCellValue(al.getEmiStatus());
+			data.createCell(4).setCellValue(al.getApplicationStatus());
+			i++;
+
+		}
+		ServletOutputStream stream = response.getOutputStream();
+		workbook.write(stream);
+		workbook.close();
+		stream.close();
 	}
 
 }
