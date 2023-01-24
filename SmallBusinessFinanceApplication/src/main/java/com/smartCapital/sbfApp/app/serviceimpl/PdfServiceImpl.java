@@ -93,7 +93,8 @@ public class PdfServiceImpl implements PdfServiceI
 	@Override
 	public void generateExcel(HttpServletResponse response, Integer applicationId)
 			throws DocumentException, IOException {
-		Iterable<CustomerApplicationForm> all = (Iterable<CustomerApplicationForm>) cr.findByApplicationId(applicationId);
+		CustomerApplicationForm all = cr.findByApplicationId(applicationId);
+		List<EMITable> lt=all.getCustomerLoanDetails().getEmitable();
 
 		HSSFWorkbook workbook = new HSSFWorkbook();
 		HSSFSheet sheet = workbook.createSheet();
@@ -133,15 +134,14 @@ public class PdfServiceImpl implements PdfServiceI
 		
 
 		int i = 1;
-		for (CustomerApplicationForm al : all) {
+		for (EMITable al : lt) {
 
 			HSSFRow data = sheet.createRow(i);
-			data.createCell(0).setCellValue(String.valueOf(i));
-//			data.createCell(1).setCellValue("" + al.getEmidate() + "");
-//			data.createCell(2).setCellValue(al.getEmiAmount());
-//			data.createCell(3).setCellValue(al.getEmiTenure());
-//			data.createCell(4).setCellValue(al.getEmiStatus());
-			data.createCell(4).setCellValue(al.getApplicationStatus());
+		data.createCell(0).setCellValue(String.valueOf(i));
+			data.createCell(1).setCellValue("" + al.getEmidate() + "");
+			data.createCell(2).setCellValue(al.getEmiAmount());
+			data.createCell(3).setCellValue(al.getEmiTenure());
+			data.createCell(4).setCellValue(al.getEmiStatus());
 			i++;
 
 		}
