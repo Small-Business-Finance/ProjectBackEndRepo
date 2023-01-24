@@ -15,7 +15,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class EMITable{ 
 @Id
 @GeneratedValue(strategy=GenerationType.AUTO)
