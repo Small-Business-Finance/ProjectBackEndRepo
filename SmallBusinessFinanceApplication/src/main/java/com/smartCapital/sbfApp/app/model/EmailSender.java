@@ -13,4 +13,10 @@ public class EmailSender {
 	private String fromEmail;
 	private String subject;
 	private String message;
+	private String textBody;
+//	private String fromemailid;
+//	private String fullname;
+//	private String emailid;
+//	private String phonenumber;
+//	private String query;
 }

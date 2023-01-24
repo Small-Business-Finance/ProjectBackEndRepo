@@ -140,6 +140,7 @@ public class EmailSenderController {
 		}
 	}
 	
+
 	@PostMapping(value = "/lowcibil")
 	public void sendCibilMail(@RequestBody Enquiry eq) throws Exception {
 		EmailSender em = new EmailSender();
