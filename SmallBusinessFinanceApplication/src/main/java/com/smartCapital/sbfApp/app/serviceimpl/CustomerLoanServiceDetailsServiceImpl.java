@@ -72,7 +72,7 @@ return cr.findByCustomerLoanDetails_DefaultorCountGreaterThan(0);
 //		List<EMITable> ts=er.findAllByEmiDetailsId(et.getEmiDetailsId());
 		
 		CustomerLoanDetails cd=csr.findByEmitable_EmiDetailsId(et.getEmiDetailsId());
-//		cd.setDefaultorCount(0);
+		//cd.setDefaultorCount(0);
 		int num=cd.getDefaultorCount();
 		System.out.println("EMI Status: "+et.getEmiStatus());
 		System.out.println("Initial Count: "+cd.getDefaultorCount());
@@ -80,6 +80,7 @@ return cr.findByCustomerLoanDetails_DefaultorCountGreaterThan(0);
 		{
 			num=num+1;
 		}
+		
 		cd.setDefaultorCount(num);
 		csr.save(cd);
 		System.out.println("Final Count: "+cd.getDefaultorCount());
