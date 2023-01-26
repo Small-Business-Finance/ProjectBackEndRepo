@@ -14,4 +14,6 @@ public interface EmployeeServiceI {
 
 	public Employee getEmployeebyId(Integer empId);
 
+	public Employee getEmployeeUnP(String username, String password);
+
 }
