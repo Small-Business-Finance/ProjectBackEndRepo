@@ -17,10 +17,12 @@ public interface CustomerApplicationFormRepository extends JpaRepository<Custome
 	public CustomerApplicationForm findByApplicationId(Integer applicationId);
 
 	public List<CustomerApplicationForm> findByCustomerLoanDetails_DefaultorCountGreaterThan(int i);
-	
-	//public Optional<CustomerApplicationForm>findByApplicationId(Integer applicationId);
 
 	public CustomerApplicationForm findByCustomerLoanDetails(CustomerLoanDetails cd);
+
+
+	//public Optional<CustomerApplicationForm>findByApplicationId(Integer applicationId);
+
 
 	
 }
