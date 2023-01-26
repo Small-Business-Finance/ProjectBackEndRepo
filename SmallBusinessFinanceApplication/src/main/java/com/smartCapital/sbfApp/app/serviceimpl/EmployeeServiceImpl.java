@@ -50,6 +50,12 @@ public class EmployeeServiceImpl implements EmployeeServiceI{
 	public Employee getEmployeebyId(Integer empId) {
 		return employeerepository.findByEmpId(empId);
 	}
+
+	@Override
+	public Employee getEmployeeUnP(String username, String password) {
+		
+		return employeerepository.findByUsernameAndPassword(username, password);
+	}
 	
 
 }

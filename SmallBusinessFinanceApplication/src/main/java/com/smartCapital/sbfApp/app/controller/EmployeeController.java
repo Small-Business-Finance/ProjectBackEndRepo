@@ -63,4 +63,11 @@ public class EmployeeController {
 		Employee employee=esi.getEmployeebyId(empId);
 		return employee;
 	}
+	@GetMapping(value = "/getbyusernameandpassword/{Username}/{Password}")
+	public Employee getEmployeeUnP(@PathVariable("Username") String Username,@PathVariable("Password") String Password) {
+		Employee rrr = esi.getEmployeeUnP(Username,Password);
+		System.out.println(rrr.getEmpName());
+		System.out.println(rrr.getEmpEmailId());
+		 return rrr	;
+	}
 }
