@@ -69,22 +69,20 @@ return cr.findByCustomerLoanDetails_DefaultorCountGreaterThan(0);
 	@Override
 	public String updateemi(EMITable et) {
 		
-//		List<EMITable> ts=er.findAllByEmiDetailsId(et.getEmiDetailsId());
-		
 		CustomerLoanDetails cd=csr.findByEmitable_EmiDetailsId(et.getEmiDetailsId());
-		//cd.setDefaultorCount(0);
-		int num=cd.getDefaultorCount();
 		System.out.println("EMI Status: "+et.getEmiStatus());
 		System.out.println("Initial Count: "+cd.getDefaultorCount());
-		if(et.getEmiStatus().equals("Unpaid"))
-		{
-			num=num+1;
-		}
-		
-		cd.setDefaultorCount(num);
-		csr.save(cd);
-		System.out.println("Final Count: "+cd.getDefaultorCount());
 		er.save(et);
+		Integer d=csr.countEmitableByLoanDetailsIdAndEmiStatus(cd.getLoanId(), "Unpaid");
+		cd.setDefaultorCount(d);
+		csr.save(cd);
+		System.out.println("Final Count: "+d);
+		Integer r=csr.countEmitableByLoanDetailsIdAndEmiStatus(cd.getLoanId(), "Paid");
+		if(r==et.getEmiTenure()) {
+			CustomerApplicationForm caf=cr.findByCustomerLoanDetails(cd);
+			caf.setApplicationStatus("Closed");
+			cr.save(caf);
+		}
 		return "EMI Updated!!!";
 	}
 

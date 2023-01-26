@@ -20,5 +20,7 @@ public interface CustomerApplicationFormRepository extends JpaRepository<Custome
 	
 	//public Optional<CustomerApplicationForm>findByApplicationId(Integer applicationId);
 
+	public CustomerApplicationForm findByCustomerLoanDetails(CustomerLoanDetails cd);
+
 	
 }
