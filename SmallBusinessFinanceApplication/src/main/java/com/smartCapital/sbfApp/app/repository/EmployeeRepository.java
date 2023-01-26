@@ -12,4 +12,5 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
 	@Transactional
 	public Employee findByEmpId(Integer empId);
+	Employee findByUsernameAndPassword(String Username,String Password);
 }
