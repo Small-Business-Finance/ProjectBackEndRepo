@@ -2,6 +2,7 @@ package com.smartCapital.sbfApp.app.repository;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -16,6 +17,8 @@ public interface CustomerApplicationFormRepository extends JpaRepository<Custome
 	public CustomerApplicationForm findByApplicationId(Integer applicationId);
 
 	public List<CustomerApplicationForm> findByCustomerLoanDetails_DefaultorCountGreaterThan(int i);
+	
+	//public Optional<CustomerApplicationForm>findByApplicationId(Integer applicationId);
 
 	
 }

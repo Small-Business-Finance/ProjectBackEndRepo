@@ -147,7 +147,7 @@ public class CustomerApplicationFormController {
 	@GetMapping(value = "/applications")
 	public ResponseEntity<Iterable<CustomerApplicationForm>> getApplications()
 	{
-		System.out.println("get......");
+		//System.out.println("get......");
 		Iterable<CustomerApplicationForm> list=csi.getApplications();
 		return new ResponseEntity<Iterable<CustomerApplicationForm>>(list,HttpStatus.OK);
 	}
