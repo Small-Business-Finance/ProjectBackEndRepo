@@ -1,5 +1,6 @@
 package com.smartCapital.sbfApp.app.serviceimpl;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,7 @@ public class CustomerLoanServiceDetailsServiceImpl implements CustomerLoanDetail
 	
 	@Autowired
 	EMITableRepository er;
+	 private static final DecimalFormat df = new DecimalFormat("0.00");
 	
 	@Override
 	public void updateLoanDetails(Integer applicationId) {
@@ -37,6 +39,10 @@ public class CustomerLoanServiceDetailsServiceImpl implements CustomerLoanDetail
 		if(!String1.equals(String2)) {
 		List<EMITable> emilist=new ArrayList<EMITable>();
 		CustomerLoanDetails ld=ca.getCustomerLoanDetails();
+		
+		
+
+
 		double p=ld.getExpectedLoanAmount();
 		double n=ld.getExpectedLoanTenure();
 		double r=ld.getRateOfInterest()/(12*100);
@@ -46,7 +52,9 @@ public class CustomerLoanServiceDetailsServiceImpl implements CustomerLoanDetail
 		for(int i=1;i<=ld.getExpectedLoanTenure();i++) {
 			date=date.plusMonths(1);
 			EMITable emi12=new EMITable();
-			emi12.setEmiAmount(emi);
+			String xx=df.format(emi);
+			Double yy=Double.parseDouble(xx);
+			emi12.setEmiAmount(yy);
 			emi12.setEmidate(date);
 			emi12.setEmiStatus("Waiting");
 			emi12.setEmiTenure((int) n);

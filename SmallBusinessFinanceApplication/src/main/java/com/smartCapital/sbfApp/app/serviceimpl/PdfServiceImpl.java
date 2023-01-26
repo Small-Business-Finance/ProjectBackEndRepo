@@ -10,10 +10,14 @@ import com.smartCapital.sbfApp.app.model.CustomerDetails;
 import com.smartCapital.sbfApp.app.model.EMITable;
 import com.smartCapital.sbfApp.app.repository.CustomerApplicationFormRepository;
 import com.smartCapital.sbfApp.app.service.PdfServiceI;
+
+import freemarker.core.CollectionAndSequence;
+
 import java.awt.Color;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -95,7 +99,7 @@ public class PdfServiceImpl implements PdfServiceI
 			throws DocumentException, IOException {
 		CustomerApplicationForm all = cr.findByApplicationId(applicationId);
 		List<EMITable> lt=all.getCustomerLoanDetails().getEmitable();
-
+		Collections.sort(lt,new SortEmi());
 		HSSFWorkbook workbook = new HSSFWorkbook();
 		HSSFSheet sheet = workbook.createSheet();
 		HSSFRow row = sheet.createRow(0);
