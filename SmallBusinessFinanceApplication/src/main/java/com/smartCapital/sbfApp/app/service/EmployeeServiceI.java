@@ -4,7 +4,7 @@ import com.smartCapital.sbfApp.app.model.Employee;
 
 public interface EmployeeServiceI {
 
-	public void saveEmployee(Employee employee);
+	public Employee saveEmployee(Employee employee);
 
 	public void updateEmployee(Integer empId, Employee employee);
 

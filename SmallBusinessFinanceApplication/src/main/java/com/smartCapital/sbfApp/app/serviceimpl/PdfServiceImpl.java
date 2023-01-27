@@ -72,7 +72,7 @@ public class PdfServiceImpl implements PdfServiceI
 		font.setSize(18);
 		font.setColor(Color.green);
 
-		Paragraph p = new Paragraph("Loan Sanction letter", font);
+		Paragraph p = new Paragraph("Loan Details", font);
 		p.setAlignment(Paragraph.ALIGN_CENTER);
 		
 
