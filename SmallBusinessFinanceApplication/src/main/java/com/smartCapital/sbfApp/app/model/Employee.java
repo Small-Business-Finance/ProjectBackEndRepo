@@ -10,9 +10,11 @@ import javax.persistence.OneToMany;
 import com.smartCapital.sbfApp.app.dto.LeaveDetailsDto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Builder
 @Entity
 @Data
 @AllArgsConstructor
