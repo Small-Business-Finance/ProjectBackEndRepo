@@ -122,13 +122,13 @@ public class EmailSenderController {
 			t=config.getTemplate("emaildisbursement.ftl");
 		}
 		
-		//if()
-		{
-			System.out.println(cf.getApplicationId());
-			System.out.println(cf.getCustomerDetails().getEmailId());
-			em.setSubject("EMI Notice");
-			t=config.getTemplate("emailnotice.ftl");
-		}
+//		//if()
+//		{
+//			System.out.println(cf.getApplicationId());
+//			System.out.println(cf.getCustomerDetails().getEmailId());
+//			em.setSubject("EMI Notice");
+//			t=config.getTemplate("emailnotice.ftl");
+//		}
 		
 		Map<String, Object> mode = new HashMap<>();
 		mode.put("name", cf.getCustomerDetails().getCustomerName());
