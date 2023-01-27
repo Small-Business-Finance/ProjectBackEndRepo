@@ -10,7 +10,7 @@ This is to inform you that Notice under Rule 6(2) and/or Rule 8(6) of the Securi
 
 Whereas the undersigned being the Authorized Officer of the Smart Capital Finance u/s 13(2) of the above said Act,read with Rule 3 <br><pre></pre>
 
-issued a Demand Notice on ${date} calling upon the Borrower ${name} to repay the amount in terms of the said notice within 60 days <br><pre></pre>
+issued a Demand Notice on  calling upon the Borrower to repay the amount in terms of the said notice within 60 days <br><pre></pre>
 
 from the date of the said notice. And whereas the Borrower(s)/Guarantor(s)/Corporate Guarantor(s) having failed to repay the amount <br><pre></pre>
 
