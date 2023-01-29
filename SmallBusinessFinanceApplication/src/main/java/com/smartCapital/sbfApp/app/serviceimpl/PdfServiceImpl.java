@@ -74,8 +74,6 @@ public class PdfServiceImpl implements PdfServiceI
 
 		Paragraph p = new Paragraph("Loan Details", font);
 		p.setAlignment(Paragraph.ALIGN_CENTER);
-		
-
 		document.add(p);
 		
 		Font font1 = FontFactory.getFont(FontFactory.HELVETICA_BOLD);
@@ -86,14 +84,23 @@ public class PdfServiceImpl implements PdfServiceI
 		p.setAlignment(Paragraph.ALIGN_CENTER);
 		document.add(p1);
 		
-		Paragraph p2 = new Paragraph("Amount-"+cf.getCustomerLoanDetails().getExpectedLoanAmount(), font1);
+		Paragraph p2 = new Paragraph("Loan Amount-"+cf.getCustomerLoanDetails().getExpectedLoanAmount(), font1);
 		p.setAlignment(Paragraph.ALIGN_CENTER);
 		document.add(p2);
 		
+
+		Paragraph p3 = new Paragraph("Loan Tenure:-"+cf.getCustomerLoanDetails().getExpectedLoanTenure(), font1);
+		p.setAlignment(Paragraph.ALIGN_CENTER);
+		document.add(p3);
+		
+		Paragraph p4 = new Paragraph("Rate of Interest:-"+cf.getCustomerLoanDetails().getRateOfInterest(), font1);
+		p.setAlignment(Paragraph.ALIGN_CENTER);
+		document.add(p4);
+		
+		
 		document.close();
 		
-		
-	}
+		}
 	
 	@Override
 	public void generateExcel(HttpServletResponse response, Integer applicationId)
