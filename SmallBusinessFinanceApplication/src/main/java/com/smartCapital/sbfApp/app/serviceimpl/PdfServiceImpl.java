@@ -72,7 +72,7 @@ public class PdfServiceImpl implements PdfServiceI
 		font.setSize(18);
 		font.setColor(Color.green);
 
-		Paragraph p = new Paragraph("Loan Details", font);
+		Paragraph p = new Paragraph("Loan Application Form", font);
 		p.setAlignment(Paragraph.ALIGN_CENTER);
 		document.add(p);
 		
@@ -84,19 +84,81 @@ public class PdfServiceImpl implements PdfServiceI
 		p.setAlignment(Paragraph.ALIGN_CENTER);
 		document.add(p1);
 		
-		Paragraph p2 = new Paragraph("Loan Amount-"+cf.getCustomerLoanDetails().getExpectedLoanAmount(), font1);
+		Paragraph p2 = new Paragraph("Customer Name:-"+cf.getCustomerDetails().getCustomerName(), font1);
 		p.setAlignment(Paragraph.ALIGN_CENTER);
 		document.add(p2);
 		
-
-		Paragraph p3 = new Paragraph("Loan Tenure:-"+cf.getCustomerLoanDetails().getExpectedLoanTenure(), font1);
+		Paragraph p3 = new Paragraph("Customer Address:-"+cf.getCustomerDetails().getAddress(), font1);
 		p.setAlignment(Paragraph.ALIGN_CENTER);
 		document.add(p3);
 		
-		Paragraph p4 = new Paragraph("Rate of Interest:-"+cf.getCustomerLoanDetails().getRateOfInterest(), font1);
+		Paragraph p4 = new Paragraph("PanCard Number:-"+cf.getCustomerDetails().getPanCardNumber(), font1);
 		p.setAlignment(Paragraph.ALIGN_CENTER);
 		document.add(p4);
 		
+		Paragraph p5 = new Paragraph("AdharCard Number:-"+cf.getCustomerDetails().getAadharId(), font1);
+		p.setAlignment(Paragraph.ALIGN_CENTER);
+		document.add(p5);
+		
+		Paragraph p6 = new Paragraph("Account Number:-"+cf.getCustomerBankDetails().getAccountNumber(), font1);
+		p.setAlignment(Paragraph.ALIGN_CENTER);
+		document.add(p6);
+		
+		Paragraph p7 = new Paragraph("Branch Code :-"+cf.getCustomerBankDetails().getBranchCode(), font1);
+		p.setAlignment(Paragraph.ALIGN_CENTER);
+		document.add(p7);
+		
+		Paragraph p8 = new Paragraph("IFSC Code:-"+cf.getCustomerBankDetails().getIfscCode(), font1);
+		p.setAlignment(Paragraph.ALIGN_CENTER);
+		document.add(p8);
+		
+		Paragraph p9 = new Paragraph("Loan Amount-"+cf.getCustomerLoanDetails().getExpectedLoanAmount(), font1);
+		p.setAlignment(Paragraph.ALIGN_CENTER);
+		document.add(p9);
+		
+		Paragraph p10 = new Paragraph("Loan Tenure:-"+cf.getCustomerLoanDetails().getExpectedLoanTenure(), font1);
+		p.setAlignment(Paragraph.ALIGN_CENTER);
+		document.add(p10);
+		
+		Paragraph p11 = new Paragraph("Rate of Interest:-"+cf.getCustomerLoanDetails().getRateOfInterest(), font1);
+		p.setAlignment(Paragraph.ALIGN_CENTER);
+		document.add(p11);
+		
+		Paragraph p12 = new Paragraph("Company Name:-"+cf.getCustomerCompanyDetails().getCompanyName(), font1);
+		p.setAlignment(Paragraph.ALIGN_CENTER);
+		document.add(p12);
+		
+		Paragraph p13 = new Paragraph("Type Of Business:-"+cf.getCustomerCompanyDetails().getTypeOfBusiness(), font1);
+		p.setAlignment(Paragraph.ALIGN_CENTER);
+		document.add(p13);
+		
+		Paragraph p14 = new Paragraph("Company Turnover:-"+cf.getCustomerCompanyDetails().getCompanyTurnover(), font1);
+		p.setAlignment(Paragraph.ALIGN_CENTER);
+		document.add(p14);
+		
+		Paragraph p15 = new Paragraph("Previous Loan Amount:-"+cf.getPreviousLoanDetails().getLoanAmount(), font1);
+		p.setAlignment(Paragraph.ALIGN_CENTER);
+		document.add(p15);
+		
+		Paragraph p16 = new Paragraph("Remaining Amount:-"+cf.getPreviousLoanDetails().getRemainingAmount(), font1);
+		p.setAlignment(Paragraph.ALIGN_CENTER);
+		document.add(p16);
+		
+		Paragraph p17 = new Paragraph("Guarrantor Name:-"+cf.getGuarantorDetails().getGuarantorName(), font1);
+		p.setAlignment(Paragraph.ALIGN_CENTER);
+		document.add(p17);
+		
+		Paragraph p18 = new Paragraph("Guarantor PanCard Number:-"+cf.getGuarantorDetails().getGuarantorPanCardNumber(), font1);
+		p.setAlignment(Paragraph.ALIGN_CENTER);
+		document.add(p18);
+		
+		Paragraph p19 = new Paragraph("Occupation:-"+cf.getGuarantorDetails().getOccupation(), font1);
+		p.setAlignment(Paragraph.ALIGN_CENTER);
+		document.add(p19);
+		
+		Paragraph p20 = new Paragraph("Guarrantor mobile no:-"+cf.getGuarantorDetails().getMobileNumber(), font1);
+		p.setAlignment(Paragraph.ALIGN_CENTER);
+		document.add(p20);
 		
 		document.close();
 		
